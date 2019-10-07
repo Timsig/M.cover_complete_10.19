@@ -5,7 +5,7 @@ const header = ({ image }) => {
   // const text = headline ? "<h3>"{headline}"</h3>"
   return (
   <img src={image} />
-
+    
   )
 }
 

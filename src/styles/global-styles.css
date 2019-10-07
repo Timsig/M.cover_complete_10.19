@@ -110,6 +110,10 @@ label {
   color: #189138;
 }
 
+.page-head-wrap {
+  padding: 20px 10px;
+}
+
 /******* Form field wrappers *********/
 
 .questions-wrapper,
@@ -339,4 +343,10 @@ footer a {
 
 .licenceno {
   margin-right: 10px;
+}
+
+.driver-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12) 1px 1px 2px 1px rgba(0,0,0,0.09);
 }

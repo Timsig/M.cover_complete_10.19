@@ -1,8 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet"
-import Test from './pages/testpage'
-import Page2 from "./pages/page2"
-// import ScrollToTop from './components/scroll-to-top'
+import ScrollToTop from './components/scroll-to-top'
+import AboutYou from './pages/about-you'
+import MoreAboutYou from "./pages/more-about-you"
+import JourneySelector from "./pages/journey-selector"
 import './styles/global-styles.css'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -11,17 +12,19 @@ class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.updateColour=this.updateColour.bind(this);
+    this.addDriver=this.addDriver.bind(this);
 
     this.state = {
-      colour: ""
+      drivers: []
     }
   }
 
-  updateColour(colour) {
+  addDriver(newDriver) {
     console.log("clicked")
+    const drivers = this.state.drivers;
+    drivers.push(newDriver);
     this.setState ({
-      colour: colour
+      drivers: drivers
     })
   }
 
@@ -33,11 +36,15 @@ class Main extends React.Component {
         <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet"></link>
       </Helmet>
         <Router>
-          <Route 
-            exact path="/" 
-            render={() => (<Test updateColour={this.updateColour} />)} 
-          />
-          <Route path="/page2" component={Page2} />
+          <ScrollToTop >
+            <Route 
+              exact path="/" 
+              render={() => (<AboutYou addDriver={this.addDriver} />)} 
+            />
+            <Route path="/more-about-you" component={MoreAboutYou} />
+          
+            <Route path="/journey-selector" component={JourneySelector} />
+          </ScrollToTop>
         </ Router>
       </div>
     )
