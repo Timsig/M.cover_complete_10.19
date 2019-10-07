@@ -1,0 +1,342 @@
+/* colours:
+Dark/ text: #333 
+header: silver
+container bg: #eee
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap');
+/******* Generic and container rules *********/
+
+html {
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  color: #333;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1b1f21;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+header {
+  width: 100%;
+  min-height: 60px;
+  /* background: silver; */
+}
+
+.container {
+  background: #f1f5f8;
+  width: 320px;
+  margin: 0 auto;
+  position: relative;
+}
+
+main {
+  padding: 0 10px 0 10px;
+}
+
+/******* Form field molecules general rules *********/
+
+input,
+textarea,
+select,
+label,
+button {
+  font-size: 16px;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  padding: 5px;
+}
+
+button {
+  padding: 0 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  line-height: 30px;
+  border-radius: 3px;
+}
+
+button:hover {
+  border: 1px #333 solid;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+.qwrap-text label,
+.qwrap-select label,
+.qwrap-revealer label {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.errorMessage {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #e03a3e;
+  border-radius: 3px;
+  color: #e03a3e;
+}
+
+.successMessage {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #189138;
+  border-radius: 3px;
+  color: #189138;
+}
+
+/******* Form field wrappers *********/
+
+.questions-wrapper,
+h1 {
+  max-width: 960px;
+  /* margin: 0.67em auto; */
+  margin: 0 auto;
+}
+
+.questions-wrapper {
+  background: #fff;
+  padding-bottom: 10px;
+}
+
+.questions-wrapper > h3,
+.questions-wrapper h4 {
+  margin-left: 10px;
+}
+
+.qwrap {
+  border-bottom: 1px solid #eee;
+  padding: 20px 10px 20px 10px;
+}
+
+.qwrap .qwrap {
+  border-bottom: none;
+  padding: 20px 0px 20px 0px;
+}
+
+.licence .inline-form-field {
+  margin: 10px 0 10px 0;
+}
+
+.inline-form-field,
+.datewrap {
+  display: flex;
+  align-items: center;
+}
+
+.datewrap #DOB-day,
+.datewrap #DOB-month,
+.datewrap #startDate-day,
+.datewrap #startDate-month {
+  max-width: 40px;
+  margin-right: 10px;
+}
+
+.datewrap #DOB-year,
+.datewrap #startDate-year {
+  max-width: 80px;
+}
+
+.image-wrap {
+  width: 320px;
+  margin: 0 auto 0 auto;
+  position: relative;
+  border: 1px solid #eee;
+}
+
+.image-wrap img {
+  width: 100%;
+}
+
+/******* Pepopulated questioins *********/
+
+.prepop-questions {
+  padding: 20px 0 20px 0;
+}
+
+.prepop-wrap {
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* align-items: center; */
+  padding: 20px 10px 0 10px;
+  margin: 0;
+}
+
+.prepop-wrap select {
+  max-height: 21px;
+  display: inline-block;
+}
+
+.prepop-wrap * {
+  margin: 0 10px 0 0;
+}
+
+.prepop-wrap *:first-child {
+  margin-left: 0;
+  
+}
+
+/******* Radio buttons group rules *********/
+
+.inline-radio-group input[type="radio"] {
+  display: none;
+}
+
+.inline-radio-group div {
+  display: inline-block;
+}
+
+.inline-radio-group label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 1px #eee solid;
+  border-radius: 3px;
+}
+
+.numbers label {
+  margin-right: -1px;
+}
+
+.inline-radio-group label:hover {
+  border: 1px #333 solid;
+}
+
+.inline-radio-group input[type="radio"]:checked + label {
+  background: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+/******* Radiolist *********/
+input[type="radio"] {
+  z-index: 301;
+  transform: translateY(-3px);
+}
+
+input[type="radio"]:hover {
+  border: 1px #333 solid;
+}
+
+input[type="radio"]:checked + label {
+  background: #333;
+  color: #fff;
+  border-radius: 3px;
+}
+
+/******* Checkbox rules *********/
+
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrap label {
+  margin-bottom: 0;
+  margin-left: -25px;
+  padding-left: 30px;
+  width: 100%;
+  line-height: 40px;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  z-index: 300;
+  margin-left: 10px;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+  background: #333;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.checkbox-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #333;
+}
+
+/******* Footer rules *********/
+footer {
+  background-color: #eee;
+  min-height: 60px;
+  padding: 20px 0 20px 0;
+}
+
+.navrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.saverow {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+/******* navbutton rules *********/
+
+.primary {
+  background-color: #333;
+  color: #fff;
+}
+
+.disabled {
+  color: #333;
+  background-color: #eee;
+  border: none;
+}
+
+.disabled:hover {
+  border: none;
+}
+
+.btn-block {
+  display: block;
+  width: 93%;
+  margin: 10px;
+}
+
+/******************************************CAR***********************************/
+
+.licenceno {
+  margin-right: 10px;
+}
