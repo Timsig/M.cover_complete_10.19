@@ -177,33 +177,7 @@ h1 {
   width: 100%;
 }
 
-/******* Pepopulated questioins *********/
 
-.prepop-questions {
-  padding: 20px 0 20px 0;
-}
-
-.prepop-wrap {
-  /* display: flex;
-  flex-wrap: wrap; */
-  /* align-items: center; */
-  padding: 20px 10px 0 10px;
-  margin: 0;
-}
-
-.prepop-wrap select {
-  max-height: 21px;
-  display: inline-block;
-}
-
-.prepop-wrap * {
-  margin: 0 10px 0 0;
-}
-
-.prepop-wrap *:first-child {
-  margin-left: 0;
-  
-}
 
 /******* Radio buttons group rules *********/
 
@@ -288,6 +262,33 @@ input[type="checkbox"]:checked + label {
   font-weight: bold;
   text-decoration: underline;
   color: #333;
+}
+
+/******* Pepopulated questioins *********/
+
+.prepop-questions {
+  padding: 20px 10px 20px 10px;
+}
+
+.prepop-wrap {
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* align-items: center; */
+  padding: 20px 0 0 0;
+  margin: 0;
+}
+
+.prepop-wrap select {
+  max-height: 21px;
+  display: inline-block;
+}
+
+.prepop-wrap * {
+  margin: 0 10px 0 0;
+}
+
+.prepop-wrap *:first-child {
+  margin-left: 0; 
 }
 
 /******* Footer rules *********/

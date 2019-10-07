@@ -17,7 +17,7 @@ import Submitbutton from "../components/molecules/submitbutton"
 import Licence from "../components/q_licence"
 import Headertext from "../components/header_text"
 
-class  IndexPage extends React.Component { 
+class  AboutYou extends React.Component { 
 
   constructor(props) {
     super(props)
@@ -31,8 +31,8 @@ class  IndexPage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.firstName.value, this.surName.value)
-    const newDriver = this.firstName.value + " " + this.surName.value;
-    this.props.addDriver(newDriver);
+    const fullName = this.firstName.value + " " + this.surName.value;
+    this.props.addPolicyHolder(fullName);
     this.setState({
       redirect: true
     })
@@ -83,4 +83,4 @@ class  IndexPage extends React.Component {
   }
 }
 
-export default IndexPage
+export default AboutYou

@@ -1,10 +1,12 @@
 import React from "react";
+import './styles/global-styles.css'
 import { Helmet } from "react-helmet"
 import ScrollToTop from './components/scroll-to-top'
 import AboutYou from './pages/about-you'
 import MoreAboutYou from "./pages/more-about-you"
 import JourneySelector from "./pages/journey-selector"
-import './styles/global-styles.css'
+import BuilderPage from "./pages/builder-page"
+
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -12,20 +14,37 @@ class Main extends React.Component {
 
   constructor(props) {
     super(props)
-    this.addDriver=this.addDriver.bind(this);
+    this.addPolicyHolder=this.addPolicyHolder.bind(this);
+    this.addCar = this.addCar.bind(this);
 
     this.state = {
-      drivers: []
+      policyHolder: "",
+      motorComplete: false,
+      currentCar: "",
+      car1: {
+        image: "",
+        entered: false,
+        drivers: []
+      },
+      car2: {
+        image: "",
+        entered: false,
+        drivers: []
+      },
+      drivers: [],
+
+      homeComplete: false
     }
   }
 
-  addDriver(newDriver) {
-    console.log("clicked")
-    const drivers = this.state.drivers;
-    drivers.push(newDriver);
+  addPolicyHolder(name) {
     this.setState ({
-      drivers: drivers
+      policyHolder: name
     })
+  }
+
+  addCar(car) {
+
   }
 
   render() {
@@ -33,17 +52,27 @@ class Main extends React.Component {
       <div className="container">
       <Helmet>
         <title>Prototypical</title>
-        <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet"></link>
+        {/* <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet"></link> */}
       </Helmet>
         <Router>
           <ScrollToTop >
             <Route 
               exact path="/" 
-              render={() => (<AboutYou addDriver={this.addDriver} />)} 
+              render={() => (<AboutYou addPolicyHolder={this.addPolicyHolder} />)} 
             />
             <Route path="/more-about-you" component={MoreAboutYou} />
           
             <Route path="/journey-selector" component={JourneySelector} />
+            <Route
+              path="/builder-page"
+              render={() => (
+                <BuilderPage car1={this.state.car1} 
+                  car2={this.state.car2} 
+                  drivers={this.state.drivers} />)}
+                  policyHolder={this.state.policyHolder} 
+                  addCar={this.addcar}
+                />
+            />
           </ScrollToTop>
         </ Router>
       </div>

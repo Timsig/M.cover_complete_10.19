@@ -38,6 +38,7 @@ const MoreAboutYou = () => (
           options={["Employed", "Self-employed", "Retired", "Other"]}
         />
         <section className="prepop-questions">
+          <h3>Please check the following statements:</h3>
           <Qprepop
             id="UKresident"
             textbefore="You have been a UK resident for"
