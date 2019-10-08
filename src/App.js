@@ -36,7 +36,7 @@ class Main extends React.Component {
         entered: false,
         drivers: []
       },
-      drivers: ["Tombo Bagggins"],
+      drivers: ["Tombo Bagggins", "Martha", "Tim", "Martin"],
 
       homeComplete: false
     }
