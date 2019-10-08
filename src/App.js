@@ -21,6 +21,11 @@ class Main extends React.Component {
       policyHolder: "",
       motorComplete: false,
       currentCar: "",
+      cars: {car1: {
+                      image:"https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car1Head.png",
+                      drivers: ["Tombo Baggins"]
+                    }  
+      },
       car1: {
         image: "",
         entered: false,
@@ -31,7 +36,7 @@ class Main extends React.Component {
         entered: false,
         drivers: []
       },
-      drivers: [],
+      drivers: ["Tombo Bagggins"],
 
       homeComplete: false
     }
@@ -50,12 +55,8 @@ class Main extends React.Component {
   render() {
     return (
       <div className="container">
-      <Helmet>
-        <title>Prototypical</title>
-        {/* <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet"></link> */}
-      </Helmet>
         <Router>
-          <ScrollToTop >
+          <ScrollToTop>
             <Route 
               exact path="/" 
               render={() => (<AboutYou addPolicyHolder={this.addPolicyHolder} />)} 
@@ -65,13 +66,11 @@ class Main extends React.Component {
             <Route path="/journey-selector" component={JourneySelector} />
             <Route
               path="/builder-page"
-              render={() => (
-                <BuilderPage car1={this.state.car1} 
-                  car2={this.state.car2} 
-                  drivers={this.state.drivers} />)}
+              render={() => (<BuilderPage cars={this.state.cars} 
+                  drivers={this.state.drivers} 
                   policyHolder={this.state.policyHolder} 
-                  addCar={this.addcar}
-                />
+                  addCar={this.addcar}/>
+              )}
             />
           </ScrollToTop>
         </ Router>

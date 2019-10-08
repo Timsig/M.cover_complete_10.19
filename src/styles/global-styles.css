@@ -4,22 +4,31 @@ header: silver
 container bg: #eee
 */
 
-@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap'); */
 /******* Generic and container rules *********/
 
 html {
-  font-family: 'Muli', sans-serif;
-  font-size: 16px;
+  
   color: #333;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1b1f21;
 }
+
+.link {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: underline;
+  color: #04589b; 
+}
+
 article,
 aside,
 details,
@@ -342,12 +351,50 @@ footer a {
 
 /******************************************CAR***********************************/
 
+.builder-wrapper {
+  padding: 20px 16px;
+}
+
 .licenceno {
   margin-right: 10px;
 }
 
-.driver-card {
+.policy-card {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12) 1px 1px 2px 1px rgba(0,0,0,0.09);
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 1px 1px 2px 1px rgba(0,0,0,0.09);
+  padding: 8px 0 0 0;
+}
+
+.driver-name {
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.driver-name p {
+  margin: 0 0 0 16px;
+}
+
+.driver-name div {
+  margin-left: 24px;
+}
+
+.driver-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url("https://res.cloudinary.com/lwcqviihu/image/upload/v1570463648/m.cover_complete/driver_icon.svg");
+}
+
+.add-remove {
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 16px 0 16px;
+  background: #f7f7f7;
+  border-radius: 0 0 8px 8px;
+  border-top: 1px solid #e3e3e3;
 }
