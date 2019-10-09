@@ -16,8 +16,8 @@ import Headertext from "../components/header_text"
 
 const MoreAboutYou = () => (
   <React.Fragment>
-  <Headertext headline="A bit more about you" />
-   <main>
+    <Headertext headline="A bit more about you" />
+    <main>
      <div className="questions-wrapper">
         <Qselect
           id="maritalStatus"
@@ -59,14 +59,13 @@ const MoreAboutYou = () => (
         <Footer>
           <div className="navrow">
              <Navbutton style="primary" to="/journey-selector" cta="Next >" />
-            {/* <Navbutton type="secondary" to="/" cta="< Back" /> */}
+            
           </div>
           
         </Footer>
         </div>
       </main>
-  </React.Fragment>
-  
+  </React.Fragment>  
 )
 
 export default MoreAboutYou
