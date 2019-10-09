@@ -20,7 +20,7 @@ class Main extends React.Component {
     this.addCar = this.addCar.bind(this);
 
     this.state = {
-      policyHolder: "Tim Signore",
+      policyHolder: "",
       motorComplete: false,
       currentCar: "car2",
       cars: {car1: {
