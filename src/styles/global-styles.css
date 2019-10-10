@@ -190,7 +190,10 @@ h1 {
   width: 100%;
 }
 
-
+.questions-wrapper .link {
+  margin-left: 16px;
+  font-weight: 700;
+}
 
 /******* Radio buttons group rules *********/
 
