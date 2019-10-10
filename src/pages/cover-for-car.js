@@ -9,23 +9,34 @@ class coverForCar extends React.Component {
   constructor(props){
     super(props)
     this.setMainDriver = this.setMainDriver.bind(this)
+    this.setNcdHolder = this.setNcdHolder.bind(this)
 
+    let mainDriver = this.props.car.drivers.length === 1 ? this.props.car.drivers[0] : ""
+    let ncdHolder = this.props.car.drivers.length === 1 ? this.props.car.drivers[0] : ""
     this.state = {
-      mainDriver: ""
-    }
+      mainDriver: mainDriver,
+      ncdHolder: ncdHolder
+    } 
   }
 
-  setMainDriver(event) {
-    alert("setting main: " + event.target.value)
+  setMainDriver(event) {  
+      this.setState({
+        mainDriver: event.target.value
+      })    
+  }
+
+  setNcdHolder(name) {
+    this.setState({
+      ncdHolder: name
+    })
   }
 
 
   render() {
     let availableDrivers = []
-    if(this.props.car.drivers.length === 1) {
+    if (this.props.car.drivers.length === 1) {
       availableDrivers.push(...this.props.car.drivers)
-      this.setMainDriver()
-    }else{
+    } else {
       availableDrivers.push("--Please select--")
       availableDrivers.push(...this.props.car.drivers)
     }
@@ -37,9 +48,11 @@ class coverForCar extends React.Component {
             <section className="prepop-questions">
               <Qprepop id="mainDriver" textafter="is the main driver of this car" options={availableDrivers} onChange={this.setMainDriver}/>
             </section>
+
+            {/* The conditionally rendered part */}
             {availableDrivers.length > 1 ?
-              <Qradiolistrevealer id="ncdHolder" options={this.props.car.drivers} question="Who will earn no claim discount on this car?"/> : null}
-              <Qselect question="What will_____use the car for?" options={["social", "driving", "rallying"]} />
+              <Qradiolistrevealer id="ncdHolder" options={this.props.car.drivers} question="Who will earn no claim discount on this car?" setHolder={this.setNcdHolder} /> : null}
+              <Qselect question={"What will " + this.state.mainDriver + " use the car for?"} options={["social", "driving", "rallying"]} />
           </div>
         </main>
         

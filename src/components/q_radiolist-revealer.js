@@ -9,17 +9,25 @@ class Qradiorevealer extends React.Component {
     this.reveal = this.reveal.bind(this)
 
     this.state = {
-      height: 0
+      height: 0,
+      ncdHolder: ""
     }
     this.ncdRef = React.createRef()
   }
 
   //Reveals selector and scrolls NCD question to top
-  reveal() {
+  reveal(event) {
     this.setState({
-      height: "auto"
+      height: "auto",
+      ncdHolder: event.target.value
     })
-    window.scrollTo(0, this.ncdRef.current.offsetTop)
+    window.scrollTo({
+      left: 0,
+      top: this.ncdRef.current.offsetTop,
+      behavior: "smooth",
+    })
+    this.props.setHolder(event.target.value)
+    
     
   }
 
@@ -38,7 +46,7 @@ class Qradiorevealer extends React.Component {
           })}
         </div>
         <AnimateHeight duration={500} height={this.state.height}>
-          <Qselect question="How many years no claim discount does_____have to use on this car?" options={["0", "1", "2", "3"]} />
+          <Qselect question={"How many years no claim discount does " + this.state.ncdHolder + " have to use on this car?"} options={["0", "1", "2", "3"]} />
         </AnimateHeight>
       </React.Fragment>
     )
