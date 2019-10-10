@@ -24,7 +24,8 @@ class Qrevealer extends Component {
     })
   }
 
-  open = () => {
+  open = (event) => {
+    event.preventDefault()
     if (
       /^([a-zA-Z]){1}([0-9][0-9]|[0-9]|[a-zA-Z][0-9][a-zA-Z]|[a-zA-Z][0-9][0-9]|[a-zA-Z][0-9]){1}([ ]?)([0-9][a-zA-z][a-zA-z]){1}$/.test(
         this.state.inputValue

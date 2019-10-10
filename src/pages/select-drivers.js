@@ -37,10 +37,16 @@ class selectDrivers extends React.Component {
     const checkedBoxes = checkboxArray.filter(input => input.checked)
     //Get the values of the checked ones
     const checkedBoxValues = checkedBoxes.map(input => input.value)
-    this.props.driversOnCar(checkedBoxValues)  
+    this.props.driversOnCar(checkedBoxValues)
+    this.setState ({
+      redirect: true
+    })  
   }
 
   render() {
+    if(this.state.redirect) {
+      return <Redirect to="/cover-for-car" />
+    }
     return(
       <React.Fragment>
         <HeaderText headline={"Who will drive      " + this.props.car.reg + "?"} />

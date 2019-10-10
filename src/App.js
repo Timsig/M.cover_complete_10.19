@@ -104,6 +104,12 @@ class Main extends React.Component {
                 driversOnCar={this.driversOnCar} />
               )}
             />
+            <Route
+              path="/cover-for-car"
+              render={() => (<CoverForCar currentCar={this.state.currentCar}
+                car={this.state[this.state.currentCar]} />
+              )}
+            />
           </ScrollToTop>
         </ Router>
       </div>

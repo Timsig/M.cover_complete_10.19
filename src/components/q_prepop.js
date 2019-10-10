@@ -1,6 +1,6 @@
 import React from "react"
 
-const Prepop = ({ id, textbefore = "", textafter = "", options }) => {
+const Prepop = ({ id, textbefore = "", textafter = "", options, ref, onChange }) => {
   
     let beforeString = ""
     if (textbefore) {
@@ -12,7 +12,7 @@ const Prepop = ({ id, textbefore = "", textafter = "", options }) => {
         <p>
           
           {beforeString}
-          <select id={id}>
+          <select id={id} ref={ref} onChange={onChange}>
             {options.map(option => {
               return (
                 <option value={option} key={option}>
