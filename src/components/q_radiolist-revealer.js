@@ -46,7 +46,7 @@ class Qradiorevealer extends React.Component {
           })}
         </div>
         <AnimateHeight duration={500} height={this.state.height}>
-          <Qselect question={"How many years no claim discount does " + this.state.ncdHolder + " have to use on this car?"} options={["0", "1", "2", "3"]} />
+          <Qselect question={"How many years no claim discount does " + this.state.ncdHolder + " have to use on this car?"} options={["0", "1", "2", "3", "4", "5", "6", "7", "8", "9 or more"]} />
         </AnimateHeight>
       </React.Fragment>
     )

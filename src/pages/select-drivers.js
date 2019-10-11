@@ -58,7 +58,7 @@ class selectDrivers extends React.Component {
             <Link to="/cover-questions">
               <p className="link">+ Add another driver</p>
             </Link>
-            <Footer type="submit" form="about-you">
+            <Footer>
               <div className="navrow">
                 <Submitbutton style="primary" cta="Choose dem drivers" form="driverSelector" />
               </div>

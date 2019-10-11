@@ -32,16 +32,22 @@ class Main extends React.Component {
                     }  
       },
       car1: {
-        image: "",
+        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car1Head.png",
+        detailsimage: "",
         reg: "ABC 123",
         entered: false,
-        drivers: []
+        drivers: [],
+        mainDriver: "",
+        ncdHolder: ""
       },
       car2: {
-        image: "",
+        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car2Head.png",
+        detailsimage: "",
         reg: "DEF 456",
         entered: false,
-        drivers: []
+        drivers: [],
+        mainDriver: "",
+        ncdHolder: ""
       },
       drivers: ["Tim Signore", "Martyn Warren", "Rob Callaghan"],
 
@@ -56,8 +62,10 @@ class Main extends React.Component {
   }
 
 // This needs to update currentCar in state
-  addCar(car) {
-
+  addCar(newCar) {
+    this.setState({
+      [this.state.currentCar]: newCar
+    })
   }
 
   driversOnCar(drivers) {
@@ -107,7 +115,8 @@ class Main extends React.Component {
             <Route
               path="/cover-for-car"
               render={() => (<CoverForCar currentCar={this.state.currentCar}
-                car={this.state[this.state.currentCar]} />
+                car={this.state[this.state.currentCar]}
+                addTheCar={this.addCar} />
               )}
             />
           </ScrollToTop>

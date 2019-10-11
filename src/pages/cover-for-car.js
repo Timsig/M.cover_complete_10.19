@@ -1,21 +1,25 @@
 import React from "react"
+import { Redirect } from "react-router-dom"
 import Headertext from "../components/header_text"
-
 import Qprepop from "../components/q_prepop"
 import Qradiolistrevealer from "../components/q_radiolist-revealer"
 import Qselect from "../components/q_select"
+import Footer from "../components/footer"
+import Actionbutton from "../components/molecules/actionbutton"
  
 class coverForCar extends React.Component {
   constructor(props){
     super(props)
     this.setMainDriver = this.setMainDriver.bind(this)
     this.setNcdHolder = this.setNcdHolder.bind(this)
+    this.addThisCar = this.addThisCar.bind(this)
 
     let mainDriver = this.props.car.drivers.length === 1 ? this.props.car.drivers[0] : ""
     let ncdHolder = this.props.car.drivers.length === 1 ? this.props.car.drivers[0] : ""
     this.state = {
       mainDriver: mainDriver,
-      ncdHolder: ncdHolder
+      ncdHolder: ncdHolder,
+      redirect: false
     } 
   }
 
@@ -31,14 +35,50 @@ class coverForCar extends React.Component {
     })
   }
 
+  addThisCar() {
+    console.log(this.props.car)
+    let carToAdd = {...this.props.car}
+    carToAdd.mainDriver = this.state.mainDriver
+    carToAdd.ncdHolder =  this.state.ncdHolder
+    carToAdd.entered = true
+    this.props.addTheCar(carToAdd)
+    this.setState({
+      redirect: true
+    })
+  }
+
 
   render() {
+    //Ask or assume main driver?
     let availableDrivers = []
     if (this.props.car.drivers.length === 1) {
       availableDrivers.push(...this.props.car.drivers)
     } else {
       availableDrivers.push("--Please select--")
       availableDrivers.push(...this.props.car.drivers)
+    }
+
+    //Iterate over drivers for useage question
+    const carUse = this.props.car.drivers.map((driver, key) => <Qselect key={key} question={"How will " + driver + " use this car?"} options={["Social, domestic & pleasure",
+      "Social, domestic & pleasure ",
+      " - inc. commuting",
+      "Business use, exc.",
+      " - commercial travelling",
+      "Business use, ",
+      " - inc.commercial travelling"]} /> )
+    
+
+    //order drivers for ncd holder based assumptions
+    let optionList =[]
+    if(this.state.ncdHolder) {
+      let position = this.props.car.drivers.indexOf(this.state.ncdHolder)
+      optionList = [...this.props.car.drivers]
+      optionList.splice(position, 1)
+      optionList.unshift(this.state.ncdHolder)
+    } 
+
+    if(this.state.redirect) {
+      return<Redirect to="/builder-page" />
     }
     return(
       <React.Fragment>
@@ -51,8 +91,33 @@ class coverForCar extends React.Component {
 
             {/* The conditionally rendered part */}
             {availableDrivers.length > 1 ?
-              <Qradiolistrevealer id="ncdHolder" options={this.props.car.drivers} question="Who will earn no claim discount on this car?" setHolder={this.setNcdHolder} /> : null}
-              <Qselect question={"What will " + this.state.mainDriver + " use the car for?"} options={["social", "driving", "rallying"]} />
+              <Qradiolistrevealer id="ncdHolder" options={this.props.car.drivers} question="Who will earn no claim discount on this car?" setHolder={this.setNcdHolder} /> : <Qselect question={"How many years no claim discount does " + this.state.mainDriver + " have to use on this car?"} options={["0", "1", "2", "3", "4", "5", "6", "7", "8", "9 or more"]} />}
+            {carUse} 
+            <section className="prepop-questions">
+              <h3>Please check the following statements:</h3>
+              <Qprepop
+                id="registeredKeeper"
+                options={optionList}
+                textafter={"is the registered keeper of this car"}
+              />
+              <Qprepop
+                id="legalOwner"
+                options={optionList}
+                textafter="is the legal owner of this car"
+              />
+              <Qprepop
+                id="ncdEarnt"
+                textbefore={this.state.ncdHolder + " earnt this no claim discount"}
+                options={["Driving this or another car in the UK",
+                  "Driving this or another car overseas"]}
+              />
+            </section> 
+            <Footer>
+              <div className="navrow">
+                <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
+              </div>
+            </Footer>
+
           </div>
         </main>
         
