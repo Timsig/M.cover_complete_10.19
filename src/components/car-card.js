@@ -5,7 +5,7 @@ import Drivername from "../components/driver-name";
 const Carcard = ({ car }) => (
   
     <div className="policy-card car-card"> 
-     <img src={car.image} />
+     <img src={car.cardimage} />
      {car.drivers.map((driver) => (
        <Drivername key={driver} driver={driver} />
      ))}

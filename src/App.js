@@ -10,6 +10,9 @@ import CarQuestions from "./pages/car-questions"
 import SelectDrivers from "./pages/select-drivers"
 import AdditionalDriver from "./pages/additional-driver-questions"
 import CoverForCar from "./pages/cover-for-car"
+import Quote from "./pages/quote"
+import PhDriverQues from "./pages/ph-driver-questions"
+import AdditionalDriverQues from "./pages/additional-driver-questions"
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -23,14 +26,12 @@ class Main extends React.Component {
     this.driversOnCar = this.driversOnCar.bind(this)
 
     this.state = {
-      policyHolder: "Tim Signore",
+      policyHolder: "",
+      policyHolderComplete: false,
       motorComplete: false,
-      currentCar: "car2",
-      cars: {car1: {
-                      image:"https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car1Head.png",
-                      drivers: ["Tombo Baggins"]
-                    }  
-      },
+      currentCar: "car1",
+      cars: {
+              },      
       car1: {
         cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car1Head.png",
         detailsimage: "",
@@ -49,15 +50,18 @@ class Main extends React.Component {
         mainDriver: "",
         ncdHolder: ""
       },
-      drivers: ["Tim Signore", "Martyn Warren", "Rob Callaghan"],
+      drivers: [],
 
       homeComplete: false
     }
   }
 
   addPolicyHolder(name) {
+    let drivers = [...this.state.drivers]
+    drivers.push(name)
     this.setState ({
-      policyHolder: name
+      policyHolder: name,
+      drivers: drivers
     })
   }
 
@@ -66,6 +70,20 @@ class Main extends React.Component {
     this.setState({
       [this.state.currentCar]: newCar
     })
+
+    let theCars = {...this.state.cars}
+    theCars[this.state.currentCar] = newCar
+    this.setState({
+      cars: theCars,
+      currentCar: "car2"
+    })
+    //Make sure policyholder appears at top of driver list
+    let newDrivers = [...new Set([...this.state.drivers, ...newCar.drivers])]
+    if(newDrivers.length > 1) {
+      let position = newDrivers.indexOf(this.state.mainDriver)
+      newDrivers.splice(position, 1)
+      newDrivers.unshift(this.state.mainDriver)
+    }
   }
 
   driversOnCar(drivers) {
@@ -109,6 +127,7 @@ class Main extends React.Component {
                 car={this.state[this.state.currentCar]}
                 drivers={this.state.drivers}
                 policyHolder={this.state.policyHolder}
+                policyHolderComplete={this.state.policyHolderComplete}
                 driversOnCar={this.driversOnCar} />
               )}
             />
@@ -119,6 +138,13 @@ class Main extends React.Component {
                 addTheCar={this.addCar} />
               )}
             />
+            <Route
+              path="/quote"
+              render={() => (<Quote />
+              )}
+            />
+            <Route path="/ph-driver-questions" component={PhDriverQues} />
+            <Route path="/additional-driver-questions" component={AdditionalDriverQues} />
           </ScrollToTop>
         </ Router>
       </div>

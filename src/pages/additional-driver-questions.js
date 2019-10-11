@@ -1,7 +1,7 @@
 import React from "react"
 
 
-import Header from "../components/header"
+import Headertext from "../components/header_text"
 
 import Qtext from "../components/q_textinput"
 import Qselect from "../components/q_select"
@@ -21,8 +21,8 @@ import { checkPropTypes } from "prop-types"
 const Driver2questions = () => {
   
   return (
-    <div style={{ backgroundColor: '#fff', paddingBottom: '10px' }}>
-      <Header image="https://res.cloudinary.com/lwcqviihu/image/upload/v1563878704/m.cover_new/driver2-questions_head.jpg" />
+    <React.Fragment>
+      <Headertext headline="Add driver" />
       <div className="questions-wrapper">
         <Qbuttons
           id="title"
@@ -102,7 +102,7 @@ const Driver2questions = () => {
         cta="Add driver to this car"
         id="addDriverButton"
       />
-    </div>
+    </React.Fragment>
     
   )
 }

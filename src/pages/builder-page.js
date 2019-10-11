@@ -4,6 +4,8 @@ import Headertext from "../components/header_text"
 import CarCard from "../components/car-card"
 import DriverCard from "../components/driver-card"
 import HotspotAction from "../components/molecules/hotspot-action"
+import Footer from "../components/footer"
+import Navbutton from "../components/molecules/navbutton"
 
 class builder extends React.Component {
 
@@ -69,6 +71,12 @@ class builder extends React.Component {
             <DriverCard key={key} driver={this.props.drivers[driver]} />
             
           ))}
+          <Footer>
+            <div className="navrow">
+              <Navbutton style="primary" to="/quote" cta="Next >" />
+            </div>
+
+          </Footer>
         </div>
         
       </React.Fragment>

@@ -41,6 +41,11 @@ class coverForCar extends React.Component {
     carToAdd.mainDriver = this.state.mainDriver
     carToAdd.ncdHolder =  this.state.ncdHolder
     carToAdd.entered = true
+    if(carToAdd.drivers.length > 1){
+      let position = carToAdd.drivers.indexOf(carToAdd.mainDriver)
+      carToAdd.drivers.splice(position, 1)
+      carToAdd.drivers.unshift(carToAdd.mainDriver)
+    }
     this.props.addTheCar(carToAdd)
     this.setState({
       redirect: true

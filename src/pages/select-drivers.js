@@ -11,20 +11,14 @@ class selectDrivers extends React.Component {
     this.selectDrivers = this.selectDrivers.bind(this)
     
   //Check if there are any drivers yet
-    const drivers = []
-    if (this.props.drivers.length > 0) {
-      this.props.drivers.forEach(function(i) {
-        drivers.push(i)
-      })
-      
-    }else{
-      drivers.push(this.props.policyHolder)
-    }
+    const drivers = this.props.drivers
     
     this.state = {
       drivers: drivers,
       redirect: false
-    }  
+    } 
+    
+    
   }
 
   selectDrivers(event) {
@@ -45,7 +39,8 @@ class selectDrivers extends React.Component {
 
   render() {
     if(this.state.redirect) {
-      return <Redirect to="/cover-for-car" />
+      let nextDest = this.props.policyHolderComplete ? "/cover-for-car" : "/ph-driver-questions"
+      return <Redirect to={nextDest} />
     }
     return(
       <React.Fragment>
@@ -55,7 +50,7 @@ class selectDrivers extends React.Component {
             <form id="driverSelector" onSubmit={this.selectDrivers} ref={form => this.form = form}>
              <Qcheckbox id="drivers" question="Please select who will drive this car from the list" options={this.state.drivers} />
             </form>
-            <Link to="/cover-questions">
+            <Link to="/additional-driver-questions">
               <p className="link">+ Add another driver</p>
             </Link>
             <Footer>
