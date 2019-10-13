@@ -22,12 +22,14 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
     this.addPolicyHolder=this.addPolicyHolder.bind(this)
+    this.addPhAsDriver = this.addPhAsDriver.bind(this)
+    this.addDriver = this.addDriver.bind(this)
     this.addCar = this.addCar.bind(this)
     this.driversOnCar = this.driversOnCar.bind(this)
 
     this.state = {
       policyHolder: "",
-      policyHolderComplete: false,
+      policyHolderAsDriver: false,
       motorComplete: false,
       currentCar: "car1",
       cars: {
@@ -56,6 +58,7 @@ class Main extends React.Component {
     }
   }
 
+  //Once about you is complete
   addPolicyHolder(name) {
     let drivers = [...this.state.drivers]
     drivers.push(name)
@@ -65,7 +68,26 @@ class Main extends React.Component {
     })
   }
 
-// This needs to update currentCar in state
+  //Once policy holder driving history complete
+  addPhAsDriver() {
+    this.setState({
+      policyHolderAsDriver: true
+    })
+  }
+
+  //Adds to car and also to driver list
+  addDriver(name) {
+    let car = this.state[this.state.currentCar]
+    car.drivers.push(name)
+    let drivers = this.state.drivers
+    drivers.push(name)
+    this.setState({
+      car: car,
+      drivers: drivers
+    })
+  }
+
+// This updates currentCar in state
   addCar(newCar) {
     this.setState({
       [this.state.currentCar]: newCar
@@ -143,8 +165,17 @@ class Main extends React.Component {
               render={() => (<Quote />
               )}
             />
-            <Route path="/ph-driver-questions" component={PhDriverQues} />
-            <Route path="/additional-driver-questions" component={AdditionalDriverQues} />
+            <Route
+              path="/ph-driver-questions"
+              render={() => (<PhDriverQues />
+              )}
+            />
+            <Route
+              path="/additional-driver-questions"
+              render={() => (<AdditionalDriverQues 
+                  addDriver={this.addDriver}/>
+              )}
+            />
           </ScrollToTop>
         </ Router>
       </div>
