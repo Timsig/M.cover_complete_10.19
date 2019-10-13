@@ -1,16 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
-const Qcheckbox = ({ id, question, options, link, linkDest, driversOnCar }) => {
+import Drivercheckbox from "../components/molecules/drivercheckbox"
+const Qcheckdrivers = ({ id, question, options, link, linkDest, theDrivers }) => {
   const theLink = link ? <Link to={linkDest}><p className='checkbox-link'>{link}</p></Link> : ""
   return (
   <div className="qwrap qwrap-checkbox">
     <p className="question">{question}</p>
     {options.map(option => {
-      return (
-        <div key={option} className="checkbox-wrap">
-          <input type="checkbox" id={option} name={id} value={option} />
-          <label htmlFor={option}>{option}</label>
-        </div>
+      return (<Drivercheckbox key={option} option={option} theDrivers={theDrivers} id={id}/>
+        
       )
     })}
     {theLink}
@@ -18,4 +16,4 @@ const Qcheckbox = ({ id, question, options, link, linkDest, driversOnCar }) => {
   )
 }
 
-export default Qcheckbox
+export default Qcheckdrivers

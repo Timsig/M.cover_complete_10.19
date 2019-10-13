@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, Redirect } from "react-router-dom"
 import HeaderText from "../components/header_text"
-import Qcheckbox from "../components/q_checkbox"
+import Qcheckdrivers from "../components/q_checkdrivers"
 import Footer from "../components/footer"
 import Submitbutton from "../components/molecules/submitbutton"
 
@@ -10,14 +10,16 @@ class selectDrivers extends React.Component {
     super(props)
     this.selectDrivers = this.selectDrivers.bind(this)
     
+    
   //Check if there are any drivers yet, otherwise just display policy holder
-    let drivers = [...this.props.drivers]
+  let drivers = [...this.props.drivers]
   if (!this.props.policyHolderAsDriver) {
     drivers.push(this.props.policyHolder)
   } 
     this.state = {
       drivers: drivers,
-      redirect: false
+      redirect: false,
+      policyHolderQues: false
     }   
   }
 
@@ -32,14 +34,23 @@ class selectDrivers extends React.Component {
     //Get the values of the checked ones
     const checkedBoxValues = checkedBoxes.map(input => input.value)
     this.props.driversOnCar(checkedBoxValues)
+
+    //Work out whether policy holder driving history needs to be asked
+    if (checkedBoxValues.indexOf(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
+      this.setState({
+        policyHolderQues: true
+      })
+    }
     this.setState ({
       redirect: true
     })  
   }
 
   render() {
+    
     if(this.state.redirect) {
-      let nextDest = this.props.policyHolderAsDriver ? "/cover-for-car" : "/ph-driver-questions"
+      // let nextDest = this.props.policyHolderAsDriver ? "/cover-for-car" : "/ph-driver-questions"
+      let nextDest = !this.props.policyHolderAsDriver && this.state.policyHolderQues ? "/ph-driver-questions" : "/cover-for-car"
       return <Redirect to={nextDest} />
     }
     return(
@@ -48,7 +59,7 @@ class selectDrivers extends React.Component {
         <main>
           <div className="questions-wrapper">
             <form id="driverSelector" onSubmit={this.selectDrivers} ref={form => this.form = form}>
-             <Qcheckbox id="drivers" question="Please select who will drive this car from the list" options={this.state.drivers} />
+             <Qcheckdrivers id="drivers" question="Please select who will drive this car from the list" options={this.state.drivers} theDrivers={this.props.car.drivers} />
             </form>
             <Link to="/additional-driver-questions">
               <p className="link">+ Add another driver</p>

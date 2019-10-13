@@ -70,7 +70,7 @@ class Main extends React.Component {
   //Once policy holder driving history complete
   addPhAsDriver() {
     let car = this.state[this.state.currentCar]
-    let drivers = this.state.drivers
+    let {drivers} = this.state
     let ph = this.state.policyHolder
     if(car.drivers.indexOf(ph) < 0) {
       car.drivers.unshift(ph)
@@ -87,13 +87,14 @@ class Main extends React.Component {
 
   //Adds to car and also to driver list
   addDriver(name) {
-    let car = this.state[this.state.currentCar]
+    const {currentCar} = this.state
+    let car = this.state[currentCar]
     car.drivers.push(name)
-    let drivers = this.state.drivers
+    let {drivers} = this.state
     drivers.push(name)
     this.setState({
-      car: car,
-      drivers: drivers
+      [currentCar]: car,
+      drivers
     })
   }
 
