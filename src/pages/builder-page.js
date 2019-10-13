@@ -26,14 +26,12 @@ class builder extends React.Component {
 
   //Swap car reg field to filled
   carEntered() {
-    alert("car entered");
     this.setState({
       carEntered: true
     })
   }
 
   retrieveCar() {
-    alert("retrieved car");
     this.setState({
       redirect: true
     })
@@ -66,7 +64,7 @@ class builder extends React.Component {
             <img src={theCard} />
             <HotspotAction left={left} top={75} width={121} height={40} action={theAction} />
           </div>
-          <h2>Drivers</h2>
+          {this.props.drivers.length > 0 && <h2>Drivers</h2>}
           {this.props.drivers.map((key, driver) => (
             <DriverCard key={key} driver={this.props.drivers[driver]} />
             

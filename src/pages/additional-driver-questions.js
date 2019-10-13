@@ -1,5 +1,5 @@
 import React from "react"
-
+import { Redirect } from "react-router-dom"
 
 import Headertext from "../components/header_text"
 
@@ -23,15 +23,27 @@ class additionalDriverQues extends React.Component {
   constructor(props) {
     super(props)
     this.addDriver = this.addDriver.bind(this)
+
+    this.state = {
+      redirect: false
+    }
   }
+
+  
 
   addDriver(event) {
     event.preventDefault();
     const fullName = this.firstName.value + " " + this.surName.value;
-    this.props.addDriver(fullName)  
+    this.props.addDriver(fullName)
+    this.setState({
+      redirect: true
+    })  
   }
   
   render() {
+    if (this.state.redirect) {
+      return<Redirect to="/select-drivers" />
+    }
     return (
       <React.Fragment>
         <Headertext headline="Add driver" />

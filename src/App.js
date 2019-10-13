@@ -60,17 +60,27 @@ class Main extends React.Component {
 
   //Once about you is complete
   addPolicyHolder(name) {
-    let drivers = [...this.state.drivers]
-    drivers.push(name)
+    let drivers = [...this.state.drivers]    
     this.setState ({
       policyHolder: name,
-      drivers: drivers
+      
     })
   }
 
   //Once policy holder driving history complete
   addPhAsDriver() {
+    let car = this.state[this.state.currentCar]
+    let drivers = this.state.drivers
+    let ph = this.state.policyHolder
+    if(car.drivers.indexOf(ph) < 0) {
+      car.drivers.unshift(ph)
+    }
+    if (drivers.indexOf(ph) < 0) {
+      drivers.unshift(ph)
+    }
     this.setState({
+      [this.state.currentCar]: car,
+      drivers: drivers,
       policyHolderAsDriver: true
     })
   }
@@ -108,12 +118,17 @@ class Main extends React.Component {
     }
   }
 
+  //Add the checked drivers to the car
   driversOnCar(drivers) {
+    //Check if policyholder driving details need to be captured
+    if(drivers.indexOf(this.state.policyHolder) < 0) {
+      return
+    }
     let theCar = {...this.state[this.state.currentCar]}
     theCar.drivers.length = 0
     theCar.drivers.push(...drivers)
     this.setState({
-      theCar
+      [this.state.currentCar]: theCar
     }) 
   }
 
@@ -149,8 +164,19 @@ class Main extends React.Component {
                 car={this.state[this.state.currentCar]}
                 drivers={this.state.drivers}
                 policyHolder={this.state.policyHolder}
-                policyHolderComplete={this.state.policyHolderComplete}
+                policyHolderAsDriver={this.state.policyHolderAsDriver}
                 driversOnCar={this.driversOnCar} />
+              )}
+            />
+            <Route
+              path="/ph-driver-questions"
+              render={() => (<PhDriverQues action={this.addPhAsDriver}/>
+              )}
+            />
+            <Route
+              path="/additional-driver-questions"
+              render={() => (<AdditionalDriverQues
+                addDriver={this.addDriver} />
               )}
             />
             <Route
@@ -164,18 +190,7 @@ class Main extends React.Component {
               path="/quote"
               render={() => (<Quote />
               )}
-            />
-            <Route
-              path="/ph-driver-questions"
-              render={() => (<PhDriverQues />
-              )}
-            />
-            <Route
-              path="/additional-driver-questions"
-              render={() => (<AdditionalDriverQues 
-                  addDriver={this.addDriver}/>
-              )}
-            />
+            />     
           </ScrollToTop>
         </ Router>
       </div>

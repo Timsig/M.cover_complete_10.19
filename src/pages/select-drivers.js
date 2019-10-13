@@ -10,15 +10,15 @@ class selectDrivers extends React.Component {
     super(props)
     this.selectDrivers = this.selectDrivers.bind(this)
     
-  //Check if there are any drivers yet
-    const drivers = this.props.drivers
-    
+  //Check if there are any drivers yet, otherwise just display policy holder
+    let drivers = [...this.props.drivers]
+  if (!this.props.policyHolderAsDriver) {
+    drivers.push(this.props.policyHolder)
+  } 
     this.state = {
       drivers: drivers,
       redirect: false
-    } 
-    
-    
+    }   
   }
 
   selectDrivers(event) {
@@ -39,7 +39,7 @@ class selectDrivers extends React.Component {
 
   render() {
     if(this.state.redirect) {
-      let nextDest = this.props.policyHolderComplete ? "/cover-for-car" : "/ph-driver-questions"
+      let nextDest = this.props.policyHolderAsDriver ? "/cover-for-car" : "/ph-driver-questions"
       return <Redirect to={nextDest} />
     }
     return(
