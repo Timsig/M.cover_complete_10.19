@@ -15,6 +15,7 @@ import PhDriverQues from "./pages/ph-driver-questions"
 import AdditionalDriverQues from "./pages/additional-driver-questions"
 import AboutYourHome from "./pages/about-your-home"
 import HomeItems from "./pages/home-items"
+import AddItem from "./pages/add-item"
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -199,7 +200,12 @@ class Main extends React.Component {
               path="/home-items"
               render={() => (<HomeItems />
               )}
-            />    
+            /> 
+            <Route
+              path="/add-item"
+              render={() => (<AddItem />
+              )}
+            />       
           </ScrollToTop>
         </ Router>
       </div>

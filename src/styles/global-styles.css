@@ -439,3 +439,7 @@ footer a {
 .address-wrap .link {
   margin-left: 0;
 }
+
+.add-item {
+  position: relative;
+}
