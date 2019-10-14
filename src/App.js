@@ -13,6 +13,8 @@ import CoverForCar from "./pages/cover-for-car"
 import Quote from "./pages/quote"
 import PhDriverQues from "./pages/ph-driver-questions"
 import AdditionalDriverQues from "./pages/additional-driver-questions"
+import AboutYourHome from "./pages/about-your-home"
+import HomeItems from "./pages/home-items"
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -191,7 +193,13 @@ class Main extends React.Component {
               path="/quote"
               render={() => (<Quote />
               )}
-            />     
+            /> 
+            <Route path="/about-your-home" component={AboutYourHome} /> 
+            <Route
+              path="/home-items"
+              render={() => (<HomeItems />
+              )}
+            />    
           </ScrollToTop>
         </ Router>
       </div>
