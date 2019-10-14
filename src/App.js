@@ -8,7 +8,6 @@ import JourneySelector from "./pages/journey-selector"
 import BuilderPage from "./pages/builder-page"
 import CarQuestions from "./pages/car-questions"
 import SelectDrivers from "./pages/select-drivers"
-import AdditionalDriver from "./pages/additional-driver-questions"
 import CoverForCar from "./pages/cover-for-car"
 import Quote from "./pages/quote"
 import PhDriverQues from "./pages/ph-driver-questions"
@@ -29,10 +28,13 @@ class Main extends React.Component {
     this.addDriver = this.addDriver.bind(this)
     this.addCar = this.addCar.bind(this)
     this.driversOnCar = this.driversOnCar.bind(this)
+    this.setFirstLOB = this.setFirstLOB.bind(this)
+    this.addItem = this.addItem.bind(this)
 
     this.state = {
       policyHolder: "",
       policyHolderAsDriver: false,
+      firstLOB: "",
       motorComplete: false,
       currentCar: "car1",
       cars: {
@@ -57,7 +59,8 @@ class Main extends React.Component {
       },
       drivers: [],
 
-      homeComplete: false
+      homeComplete: false,
+      items: []
     }
   }
 
@@ -67,6 +70,12 @@ class Main extends React.Component {
     this.setState ({
       policyHolder: name,
       
+    })
+  }
+
+  setFirstLOB(line){
+    this.setState({
+      firstLOB: line
     })
   }
 
@@ -136,6 +145,15 @@ class Main extends React.Component {
     }) 
   }
 
+  addItem(item){
+    const items  = [...this.state.items]
+    items.push(item)
+    this.setState({
+      items
+    })
+
+  }
+
   render() {
     return (
       <div className="container">
@@ -198,12 +216,12 @@ class Main extends React.Component {
             <Route path="/about-your-home" component={AboutYourHome} /> 
             <Route
               path="/home-items"
-              render={() => (<HomeItems />
+              render={() => (<HomeItems items={this.state.items}/>
               )}
             /> 
             <Route
               path="/add-item"
-              render={() => (<AddItem />
+              render={() => (<AddItem addItem={this.addItem} />
               )}
             />       
           </ScrollToTop>

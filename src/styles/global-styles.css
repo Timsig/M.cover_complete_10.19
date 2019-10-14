@@ -195,6 +195,15 @@ h1 {
   font-weight: 700;
 }
 
+.inline-text {
+  display: flex;
+  align-items: center;
+}
+
+.inline-text p {
+  margin-right: 8px;
+}
+
 /******* Radio buttons group rules *********/
 
 .inline-radio-group input[type="radio"] {
@@ -442,4 +451,9 @@ footer a {
 
 .add-item {
   position: relative;
+}
+
+.item-card {
+  padding: 8px;
+  margin-bottom: 16px;
 }
