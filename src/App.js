@@ -30,6 +30,7 @@ class Main extends React.Component {
     this.driversOnCar = this.driversOnCar.bind(this)
     this.setFirstLOB = this.setFirstLOB.bind(this)
     this.addItem = this.addItem.bind(this)
+    this.lineComplete = this.lineComplete.bind(this)
 
     this.state = {
       policyHolder: "",
@@ -145,11 +146,19 @@ class Main extends React.Component {
     }) 
   }
 
+  //Add spec item to home policy
   addItem(item){
     const items  = [...this.state.items]
     items.push(item)
     this.setState({
       items
+    })
+  }
+
+  //Mark one LOB as complete
+  lineComplete(line) {
+    this.setState({
+      [line]: true
     })
 
   }
@@ -164,14 +173,18 @@ class Main extends React.Component {
               render={() => (<AboutYou addPolicyHolder={this.addPolicyHolder} />)} 
             />
             <Route path="/more-about-you" component={MoreAboutYou} />
-          
-            <Route path="/journey-selector" component={JourneySelector} />
+            <Route
+              path="/journey-selector"
+              render={() => (<JourneySelector setFirst={this.setFirstLOB} />
+              )}
+            />
             <Route
               path="/builder-page"
               render={() => (<BuilderPage cars={this.state.cars}
                   currentCar={this.state.currentCar} 
                   drivers={this.state.drivers} 
-                  policyHolder={this.state.policyHolder} 
+                  policyHolder={this.state.policyHolder}
+                  lineComplete={this.lineComplete} 
                   />
               )}
             />
@@ -216,7 +229,7 @@ class Main extends React.Component {
             <Route path="/about-your-home" component={AboutYourHome} /> 
             <Route
               path="/home-items"
-              render={() => (<HomeItems items={this.state.items}/>
+              render={() => (<HomeItems items={this.state.items} lineComplete={this.lineComplete} />
               )}
             /> 
             <Route

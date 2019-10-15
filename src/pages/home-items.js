@@ -1,7 +1,8 @@
 import React from "react"
+import { Redirect } from "react-router-dom"
 import Footer from "../components/footer"
 import Headertext from "../components/header_text"
-import Navbutton from "../components/molecules/navbutton"
+import Actionbutton from "../components/molecules/actionbutton"
 import Hotspot from "../components/molecules/hotspot"
 import Qselect from "../components/q_select"
 import Itemcard from "../components/item-card"
@@ -10,9 +11,25 @@ class homeItems extends React.Component {
 
   constructor(props) {
     super(props)
+    this.homeComplete = this.homeComplete.bind(this)
+
+    this.state = {
+      redirect: false
+    }
+  }
+
+  homeComplete() {
+    this.props.lineComplete("homeComplete")
+    this.setState({
+      redirect: true
+    })
+
   }
 
   render() {
+    if(this.state.redirect) {
+      return<Redirect to="/quote" />
+    }
     return(
       <React.Fragment>
         <Headertext headline="Your bikes and items" />
@@ -35,7 +52,7 @@ class homeItems extends React.Component {
           <Qselect id="unspecItems" question="How much cover do you want for items that you take away from home that are worth less than £2,000 each?" options={["No cover", "Up to £2,500", "Up to £3,000", "Up to £4,000", "Up to £5,000", "Up to £6,000", "Up to £7,000", "Up to £8,000", "Up to £9,000", "Up to £10,000", "Up to £11,000", "Up to £12,000", "Up to £13,000", "Up to £14,000", "Up to £15,000"]} />
           <Footer>
             <div className="navrow">
-              <Navbutton style="primary" to="/quote" cta="Get quote >" />
+              <Actionbutton style="primary" action={this.homeComplete} cta="Get quote >" />
             </div>
 
           </Footer>

@@ -5,7 +5,7 @@ import CarCard from "../components/car-card"
 import DriverCard from "../components/driver-card"
 import HotspotAction from "../components/molecules/hotspot-action"
 import Footer from "../components/footer"
-import Navbutton from "../components/molecules/navbutton"
+import Actionbutton from "../components/molecules/actionbutton"
 
 class builder extends React.Component {
 
@@ -13,13 +13,15 @@ class builder extends React.Component {
     super(props)
     this.carEntered = this.carEntered.bind(this)
     this.retrieveCar = this.retrieveCar.bind(this)
+    this.motorComplete = this.motorComplete.bind(this)
 
     //Keep track of car to be entered
     
     this.state={
       currentCar: this.props.currentCar,
       carEntered: false,
-      redirect: false
+      redirect: false,
+      nextDest: ""
     }
 
   }
@@ -33,6 +35,16 @@ class builder extends React.Component {
 
   retrieveCar() {
     this.setState({
+      nextDest: "/car-questions",
+      redirect: true
+    })
+  }
+
+  //To quote page and update motor as complete
+  motorComplete() {
+    this.props.lineComplete("motorComplete")
+    this.setState({
+      nextDest: "/quote",
       redirect: true
     })
   }
@@ -40,7 +52,7 @@ class builder extends React.Component {
   render() {
 
     if (this.state.redirect){
-      return <Redirect to="/car-questions" />
+      return <Redirect to={this.state.nextDest} />
     }
     let left = this.state.carEntered ? 166 : 16
     let theAction = this.state.carEntered ? this.retrieveCar : this.carEntered
@@ -71,7 +83,7 @@ class builder extends React.Component {
           ))}
           <Footer>
             <div className="navrow">
-              <Navbutton style="primary" to="/quote" cta="Next >" />
+              <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
             </div>
 
           </Footer>

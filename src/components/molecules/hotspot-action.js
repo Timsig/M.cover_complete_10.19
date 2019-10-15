@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from 'react-router-dom'
 
-const HotspotAction = ({ left, top, width, height, action }) => {
+const HotspotAction = ({ left, top, width, height, action, id }) => {
   const stylePosition = {
     width: width,
     height: height,
@@ -14,7 +14,7 @@ const HotspotAction = ({ left, top, width, height, action }) => {
 
   return (
     
-      <div className="hotspot" style={stylePosition} onClick={action} />
+      <div className="hotspot" style={stylePosition} onClick={action} id={id}/>
    
   )
 }

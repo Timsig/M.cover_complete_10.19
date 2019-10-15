@@ -102,13 +102,15 @@ class coverForCar extends React.Component {
               <h3>Please check the following statements:</h3>
               <Qprepop
                 id="registeredKeeper"
-                options={optionList}
-                textafter={"is the registered keeper of this car"}
+                textbefore={this.state.ncdHolder}
+                options={["is", "is not"]}
+                textafter="the registered keeper of this car"
               />
               <Qprepop
                 id="legalOwner"
-                options={optionList}
-                textafter="is the legal owner of this car"
+                textbefore={this.state.ncdHolder}
+                options={["is", "is not"]}
+                textafter="is the registered keeper of this car"
               />
               <Qprepop
                 id="ncdEarnt"
