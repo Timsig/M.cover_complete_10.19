@@ -59,6 +59,7 @@ const MoreAboutYou = () => (
         <Footer>
           <div className="navrow">
              <Navbutton style="primary" to="/journey-selector" cta="Next >" />
+             <Navbutton style="secondary" to="/" cta="< Back" />
             
           </div>
           

@@ -128,6 +128,15 @@ label {
   margin: 0 10px 0 10px;
 }
 
+.fake-btn-block {
+  text-align: center;
+  width: 93%;
+  border: 1px solid #eee;
+  line-height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /******* Form field wrappers *********/
 
 .questions-wrapper,

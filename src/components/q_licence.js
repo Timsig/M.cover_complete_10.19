@@ -30,6 +30,7 @@ class Licence extends React.Component {
   }
 
   retrieve = evt => {
+    evt.preventDefault()
     if (this.state.valid) {
       this.setState({
         success: true,
@@ -64,7 +65,7 @@ class Licence extends React.Component {
         <button className={btnClass} onClick={this.retrieve}>
           Retrieve details
         </button>
-        <button className="btn-block ">I don't know the licence number</button>
+        <p className="fake-btn-block">I don't know the licence number</p>
         {this.state.success ? successMessage : ""}
 
         {/* {this.state.error ? errorMessage : ""} */}

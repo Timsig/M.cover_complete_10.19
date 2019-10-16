@@ -82,13 +82,13 @@ class selectDrivers extends React.Component {
             <form id="driverSelector" onSubmit={this.selectDrivers} ref={form => this.form = form}>
              <Qcheckdrivers id="drivers" question="Please select who will drive this car from the list" options={this.state.drivers} theDrivers={this.props.car.drivers} />
               {/* <input className="button-link" name="action" value="add-driver" type="submit" form="driverSelector" >+ Add another driver</input> */}
-              <button className="button-link" onClick={this.handleAddDriver}>+ Add driver</button>
+              <button className="button-link" onClick={this.handleAddDriver}>+ Add another driver</button>
             </form>
            
             
             <Footer>
               <div className="navrow">
-                <Submitbutton style="primary" cta="Choose dem drivers" name="action" value="choose-drivers" form="driverSelector" />
+                <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
               </div>
             </Footer>
           </div>

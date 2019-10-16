@@ -68,12 +68,12 @@ class  AboutYou extends React.Component {
           />
         </form>
 
-        <Footer type="submit" form="about-you">
+        <Footer form="about-you">
           <div className="navrow">
             <Submitbutton style="primary" cta="Next >" form="about-you" />
           </div>
           <div className="saverow">
-            <Navbutton type="secondary" cta="Save" to="/more-about-you" />
+            <Navbutton type="secondary" cta="Save" />
           </div>
         </Footer>
       </div >
