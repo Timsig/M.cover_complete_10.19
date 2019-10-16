@@ -476,3 +476,18 @@ footer a {
 .item-card p {
   margin-top: 0;
 }
+
+.button-link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: #04589b;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 8px;
+}
+
+.button-link:hover {
+  border: none;
+}

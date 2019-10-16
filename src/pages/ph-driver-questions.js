@@ -40,7 +40,7 @@ class phDriverQues extends React.Component {
     }
     return (
       <React.Fragment>
-        <Headertext headline="First, your driving history..." />
+        <Headertext headline="Your driving history" />
         <div className="questions-wrapper">
           <Qlicence
             id="driversLicence"

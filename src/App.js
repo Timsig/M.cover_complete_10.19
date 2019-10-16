@@ -15,6 +15,10 @@ import AdditionalDriverQues from "./pages/additional-driver-questions"
 import AboutYourHome from "./pages/about-your-home"
 import HomeItems from "./pages/home-items"
 import AddItem from "./pages/add-item"
+import QuoteMotorFlob from "./pages/quote-motor-flob"
+import QuoteMotorSlob from "./pages/quote-motor-slob"
+import QuoteHomeFlob from "./pages/quote-home-flob"
+import QuoteHomeSlob from "./pages/quote-home-slob"
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -183,8 +187,10 @@ class Main extends React.Component {
               render={() => (<BuilderPage cars={this.state.cars}
                   currentCar={this.state.currentCar} 
                   drivers={this.state.drivers} 
+                  firstLOB={this.state.firstLOB}
                   policyHolder={this.state.policyHolder}
-                  lineComplete={this.lineComplete} 
+                  lineComplete={this.lineComplete}
+                   
                   />
               )}
             />
@@ -211,7 +217,7 @@ class Main extends React.Component {
             <Route
               path="/additional-driver-questions"
               render={() => (<AdditionalDriverQues
-                addDriver={this.addDriver} />
+              addDriver={this.addDriver} />
               )}
             />
             <Route
@@ -223,20 +229,24 @@ class Main extends React.Component {
             />
             <Route
               path="/quote"
-              render={() => (<Quote />
+              render={() => (<Quote firstLOB={this.state.firstLOB} carComplete={this.state.carComplete} homeComplete={this.state.homeComplete} />
               )}
             /> 
             <Route path="/about-your-home" component={AboutYourHome} /> 
             <Route
               path="/home-items"
-              render={() => (<HomeItems items={this.state.items} lineComplete={this.lineComplete} />
+              render={() => (<HomeItems items={this.state.items} lineComplete={this.lineComplete} firstLOB={this.state.firstLOB}/>
               )}
             /> 
             <Route
               path="/add-item"
               render={() => (<AddItem addItem={this.addItem} />
               )}
-            />       
+            />  
+            <Route path="/quote-motor-flob" component={QuoteMotorFlob} />
+            <Route path="/quote-motor-slob" component={QuoteMotorSlob} />
+            <Route path="/quote-home-flob" component={QuoteHomeFlob} />
+            <Route path="/quote-home-slob" component={QuoteHomeSlob} />     
           </ScrollToTop>
         </ Router>
       </div>

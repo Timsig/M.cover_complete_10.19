@@ -14,13 +14,17 @@ class homeItems extends React.Component {
     this.homeComplete = this.homeComplete.bind(this)
 
     this.state = {
+      nextDest: "",
       redirect: false
     }
   }
 
   homeComplete() {
     this.props.lineComplete("homeComplete")
+    this.props.lineComplete("motorComplete")
+    let nextDest = this.props.firstLOB === "home" ? "/quote-home-flob" : "/quote-home-slob"
     this.setState({
+      nextDest: nextDest,
       redirect: true
     })
 
@@ -28,7 +32,7 @@ class homeItems extends React.Component {
 
   render() {
     if(this.state.redirect) {
-      return<Redirect to="/quote" />
+      return<Redirect to={this.state.nextDest} />
     }
     return(
       <React.Fragment>

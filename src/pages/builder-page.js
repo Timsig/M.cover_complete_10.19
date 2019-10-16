@@ -43,8 +43,9 @@ class builder extends React.Component {
   //To quote page and update motor as complete
   motorComplete() {
     this.props.lineComplete("motorComplete")
+    let nextDest = this.props.firstLOB === "motor" ? "/quote-motor-flob" : "/quote-motor-slob"
     this.setState({
-      nextDest: "/quote",
+      nextDest: nextDest,
       redirect: true
     })
   }

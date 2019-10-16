@@ -9,7 +9,7 @@ class selectDrivers extends React.Component {
   constructor(props) {
     super(props)
     this.selectDrivers = this.selectDrivers.bind(this)
-    
+    this.handleAddDriver = this.handleAddDriver.bind(this)
     
   //Check if there are any drivers yet, otherwise just display policy holder
   let drivers = [...this.props.drivers]
@@ -19,11 +19,11 @@ class selectDrivers extends React.Component {
     this.state = {
       drivers: drivers,
       redirect: false,
-      policyHolderQues: false
+      nextDest: ""
     }   
   }
 
-  selectDrivers(event) {
+  handleAddDriver(event) {
     event.preventDefault()
     //Get nodelist from the form
     const { drivers } = this.form
@@ -34,11 +34,34 @@ class selectDrivers extends React.Component {
     //Get the values of the checked ones
     const checkedBoxValues = checkedBoxes.map(input => input.value)
     this.props.driversOnCar(checkedBoxValues)
+    this.setState({
+        nextDest: "/additional-driver-questions",
+        redirect: true
+    })
+  }
+
+  selectDrivers(event) {
+    event.preventDefault()
+    
+    //Get nodelist from the form
+    const { drivers } = this.form
+    //Convert to array
+    const checkboxArray = Array.prototype.slice.call(drivers)
+    //Extract juust the checkked ones
+    const checkedBoxes = checkboxArray.filter(input => input.checked)
+    //Get the values of the checked ones
+    const checkedBoxValues = checkedBoxes.map(input => input.value)
+    this.props.driversOnCar(checkedBoxValues)
+    
 
     //Work out whether policy holder driving history needs to be asked
     if (checkedBoxValues.indexOf(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
       this.setState({
-        policyHolderQues: true
+        nextDest: "/ph-driver-questions"
+      })
+    }else{
+      this.setState({
+        nextDest: "/cover-for-car"
       })
     }
     this.setState ({
@@ -49,9 +72,7 @@ class selectDrivers extends React.Component {
   render() {
     
     if(this.state.redirect) {
-      // let nextDest = this.props.policyHolderAsDriver ? "/cover-for-car" : "/ph-driver-questions"
-      let nextDest = !this.props.policyHolderAsDriver && this.state.policyHolderQues ? "/ph-driver-questions" : "/cover-for-car"
-      return <Redirect to={nextDest} />
+      return <Redirect to={this.state.nextDest} />
     }
     return(
       <React.Fragment>
@@ -60,13 +81,14 @@ class selectDrivers extends React.Component {
           <div className="questions-wrapper">
             <form id="driverSelector" onSubmit={this.selectDrivers} ref={form => this.form = form}>
              <Qcheckdrivers id="drivers" question="Please select who will drive this car from the list" options={this.state.drivers} theDrivers={this.props.car.drivers} />
+              {/* <input className="button-link" name="action" value="add-driver" type="submit" form="driverSelector" >+ Add another driver</input> */}
+              <button className="button-link" onClick={this.handleAddDriver}>+ Add driver</button>
             </form>
-            <Link to="/additional-driver-questions">
-              <p className="link">+ Add another driver</p>
-            </Link>
+           
+            
             <Footer>
               <div className="navrow">
-                <Submitbutton style="primary" cta="Choose dem drivers" form="driverSelector" />
+                <Submitbutton style="primary" cta="Choose dem drivers" name="action" value="choose-drivers" form="driverSelector" />
               </div>
             </Footer>
           </div>

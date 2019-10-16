@@ -110,7 +110,7 @@ class coverForCar extends React.Component {
                 id="legalOwner"
                 textbefore={this.state.ncdHolder}
                 options={["is", "is not"]}
-                textafter="is the registered keeper of this car"
+                textafter="is the legal owner of this car"
               />
               <Qprepop
                 id="ncdEarnt"
