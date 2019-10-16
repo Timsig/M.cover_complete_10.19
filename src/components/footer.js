@@ -1,7 +1,7 @@
 import React from "react"
 
-const Footer = ({ children, bg = "#eee", type, form }) => (
-  <footer style={{ backgroundColor: bg }} type={type} form={form}>
+const Footer = ({ children, bg = "none", form }) => (
+  <footer style={{ backgroundColor: bg }} form={form}>
     {children}
   </footer>
 )

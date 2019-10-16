@@ -16,7 +16,8 @@ import Qprepop from "../components/q_prepop"
 import Qnumber from "../components/q_numbuttons"
 import Footer from "../components/footer"
 import Submitbutton from "../components/molecules/submitbutton"
-import { checkPropTypes } from "prop-types"
+import Navbutton from "../components/molecules/navbutton"
+
 
 class additionalDriverQues extends React.Component {
 
@@ -47,6 +48,7 @@ class additionalDriverQues extends React.Component {
     return (
       <React.Fragment>
         <Headertext headline="Add driver" />
+        <main>
         <div className="questions-wrapper">
           <form id="add-driver" onSubmit={this.addDriver}>
             <Qbuttons
@@ -102,13 +104,13 @@ class additionalDriverQues extends React.Component {
               <h4>Please check the following statements</h4>
               <Qprepop
                 id="claimsAccidents"
-                textbefore="Martha"
+                textbefore="This driver"
                 options={["has not", "has"]}
                 textafter="had any claims or accidents in the last five years, including whilst insured with us."
               />
               <Qprepop
                 id="UKres"
-                textbefore="Martha has been a UK resident for"
+                textbefore="This driver has been a UK resident for"
                 options={[
                   "more than 3 years",
                   "3 years",
@@ -120,9 +122,20 @@ class additionalDriverQues extends React.Component {
               />
             </section>
           </form>
-        </div>
+          </div>
+            <footer>
+              <div className="navrow">
+                <Submitbutton style="primary" cta="Add this driver >" form="add-driver" />
+                <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
+              </div>
+              <div className="saverow">
+                <Navbutton style="secondary" cta="Save" />
+              </div>
+            </footer>
 
-        <Submitbutton style="primary" cta="Add driver >" form="add-driver" />
+        
+          
+        </main>
       </React.Fragment>
       
     )

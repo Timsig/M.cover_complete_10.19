@@ -4,6 +4,7 @@ import HeaderText from "../components/header_text"
 import Qcheckdrivers from "../components/q_checkdrivers"
 import Footer from "../components/footer"
 import Submitbutton from "../components/molecules/submitbutton"
+import Navbutton from "../components/molecules/navbutton"
 
 class selectDrivers extends React.Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class selectDrivers extends React.Component {
     
 
     //Work out whether policy holder driving history needs to be asked
-    if (checkedBoxValues.indexOf(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
+    if (checkedBoxValues.includes(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
       this.setState({
         nextDest: "/ph-driver-questions"
       })
@@ -84,14 +85,18 @@ class selectDrivers extends React.Component {
               {/* <input className="button-link" name="action" value="add-driver" type="submit" form="driverSelector" >+ Add another driver</input> */}
               <button className="button-link" onClick={this.handleAddDriver}>+ Add another driver</button>
             </form>
-           
+          </div>
             
             <Footer>
               <div className="navrow">
                 <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
+                <Navbutton to="/car-questions" style="secondary" cta="< Back" />
+              </div>
+              <div className="saverow">
+                <Navbutton style="secondary" cta="Save" />
               </div>
             </Footer>
-          </div>
+          
         </main>
       </React.Fragment>
     )

@@ -53,7 +53,7 @@ class Licence extends React.Component {
       <div className="qwrap licence" ref={this.myRef}>
         <label htmlFor={this.props.id}>{this.props.question}</label>
         <div className="inline-form-field">
-          <span className="licenceno">BAGGI </span>
+          <span className="licenceno">XXXXX </span>
           <input
             id={this.props.id}
             type="text"

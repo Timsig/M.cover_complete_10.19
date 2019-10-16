@@ -136,17 +136,18 @@ const IndexPage = () => (
           options={["occupied most of the time", "empty for more than 60 days in a row", "occupied weekdays or weekends only"]}
         />
       </section>   
-    
+      </div >
 
     <Footer>
       <div className="navrow">
-        <Navbutton type="primary" to="/home-items" cta="Cover for your posessions >"  />
+        <Navbutton style="primary" to="/home-items" cta="Cover for your posessions >"  />
+        <Navbutton style="secondary" cta="< Back" />
       </div>
       <div className="saverow">
-        
+        <Navbutton type="secondary" cta="Save" />
       </div>
     </Footer>
-   </div >
+   
   </main>
   </React.Fragment>
 )

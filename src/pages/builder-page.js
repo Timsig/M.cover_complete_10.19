@@ -6,6 +6,7 @@ import DriverCard from "../components/driver-card"
 import HotspotAction from "../components/molecules/hotspot-action"
 import Footer from "../components/footer"
 import Actionbutton from "../components/molecules/actionbutton"
+import Navbutton from "../components/molecules/navbutton"
 
 class builder extends React.Component {
 
@@ -42,6 +43,7 @@ class builder extends React.Component {
 
   //To quote page and update motor as complete
   motorComplete() {
+    if (Object.keys(this.props.cars).length < 1) {return}
     this.props.lineComplete("motorComplete")
     let nextDest = this.props.firstLOB === "motor" ? "/quote-motor-flob" : "/quote-motor-slob"
     this.setState({
@@ -85,8 +87,11 @@ class builder extends React.Component {
           <Footer>
             <div className="navrow">
               <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
+              <Navbutton style="secondary" cta="< Back" />
             </div>
-
+            <div className="saverow">
+              <Navbutton type="secondary" cta="Save" />
+            </div>
           </Footer>
         </div>
         

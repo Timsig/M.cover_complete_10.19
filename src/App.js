@@ -1,7 +1,7 @@
 import React from "react";
-import './styles/global-styles.css'
-import { Helmet } from "react-helmet"
-import ScrollToTop from './components/scroll-to-top'
+import "./styles/global-styles.css"
+import ScrollToTop from "./components/scroll-to-top"
+import IntroPage from "./pages/intro-page"
 import AboutYou from './pages/about-you'
 import MoreAboutYou from "./pages/more-about-you"
 import JourneySelector from "./pages/journey-selector"
@@ -25,6 +25,7 @@ import QuoteHomeFlobM from "./pages/quote-home-flob-monthly"
 import QuoteHomeSlob from "./pages/quote-home-slob"
 import QuoteHomeSlobA from "./pages/quote-home-slob-annual"
 import QuoteHomeSlobM from "./pages/quote-home-slob-monthly"
+import TheEnd from "./pages/the-end"
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -178,8 +179,9 @@ class Main extends React.Component {
       <div className="container">
         <Router>
           <ScrollToTop>
+            <Route exact path="/" component={IntroPage} />
             <Route 
-              exact path="/" 
+              path="/about-you" 
               render={() => (<AboutYou addPolicyHolder={this.addPolicyHolder} />)} 
             />
             <Route path="/more-about-you" component={MoreAboutYou} />
@@ -258,7 +260,8 @@ class Main extends React.Component {
             <Route path="/quote-home-flob-monthly" component={QuoteHomeFlobM} />
             <Route path="/quote-home-slob" component={QuoteHomeSlob} />
             <Route path="/quote-home-slob-annual" component={QuoteHomeSlobA} />
-            <Route path="/quote-home-slob-monthly" component={QuoteHomeSlobM} />     
+            <Route path="/quote-home-slob-monthly" component={QuoteHomeSlobM} /> 
+            <Route path="/the-end" component={TheEnd} />    
           </ScrollToTop>
         </ Router>
       </div>

@@ -6,6 +6,7 @@ import Qradiolistrevealer from "../components/q_radiolist-revealer"
 import Qselect from "../components/q_select"
 import Footer from "../components/footer"
 import Actionbutton from "../components/molecules/actionbutton"
+import Navbutton from "../components/molecules/navbutton"
  
 class coverForCar extends React.Component {
   constructor(props){
@@ -119,13 +120,18 @@ class coverForCar extends React.Component {
                   "Driving this or another car overseas"]}
               />
             </section> 
+          </div>
             <Footer>
               <div className="navrow">
                 <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
+                <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
+              </div>
+              <div className="saverow">
+                <Navbutton style="secondary" cta="Save" />
               </div>
             </Footer>
 
-          </div>
+          
         </main>
         
       </React.Fragment>

@@ -6,6 +6,7 @@ import Actionbutton from "../components/molecules/actionbutton"
 import Hotspot from "../components/molecules/hotspot"
 import Qselect from "../components/q_select"
 import Itemcard from "../components/item-card"
+import Navbutton from "../components/molecules/navbutton"
 
 class homeItems extends React.Component {
 
@@ -44,7 +45,7 @@ class homeItems extends React.Component {
             <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1571063698/m.cover_complete/add_bike.png" />  
           </div>
             
-          <Qselect id="bikesAway" question="How much cover do you want for bicycles that you take away from home that are worth less that £1,00 each?" options={["No cover", "Up to £2,000", "Up to £3,000", "Up to £4,000", "Up to £5,000"]} />
+          <Qselect id="bikesAway" question="How much cover do you want for bicycles that you take away from home that are worth less that £1,000 each?" options={["No cover", "Up to £2,000", "Up to £3,000", "Up to £4,000", "Up to £5,000"]} />
           <h2>Items</h2>
             {this.props.items.map((item, i) => (
               <Itemcard key={i} item={item} />
@@ -57,8 +58,11 @@ class homeItems extends React.Component {
           <Footer>
             <div className="navrow">
               <Actionbutton style="primary" action={this.homeComplete} cta="Get quote >" />
+              <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
             </div>
-
+            <div className="saverow">
+              <Navbutton type="secondary" cta="Save" />
+            </div>
           </Footer>
         </div> 
 

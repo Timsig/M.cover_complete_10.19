@@ -67,7 +67,7 @@ class  AboutYou extends React.Component {
             question="What email address should we send your documents to?"
           />
         </form>
-
+          </div >
         <Footer form="about-you">
           <div className="navrow">
             <Submitbutton style="primary" cta="Next >" form="about-you" />
@@ -76,7 +76,7 @@ class  AboutYou extends React.Component {
             <Navbutton type="secondary" cta="Save" />
           </div>
         </Footer>
-      </div >
+      
       </main>
       </React.Fragment>
     )
