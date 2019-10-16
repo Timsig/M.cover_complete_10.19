@@ -121,18 +121,19 @@ class coverForCar extends React.Component {
               />
             </section> 
           </div>
-            <Footer>
-              <div className="navrow">
-                <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
-                <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-              </div>
-              <div className="saverow">
-                <Navbutton style="secondary" cta="Save" />
-              </div>
-            </Footer>
+        </main>
+        <Footer>
+          <div className="navrow">
+            <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
+            <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
+          </div>
+          <div className="saverow">
+            <Navbutton style="secondary" cta="Save" />
+          </div>
+        </Footer>
 
           
-        </main>
+       
         
       </React.Fragment>
 

@@ -166,6 +166,10 @@ h1 {
   padding: 20px 10px 20px 10px;
 }
 
+.questions-wrapper .qwrap:last-child {
+  border-bottom: none;
+}
+
 .qwrap .qwrap {
   border-bottom: none;
   padding: 20px 0px 20px 0px;
@@ -334,7 +338,10 @@ input[type="checkbox"]:checked + label {
 /******* Footer rules *********/
 footer {
   min-height: 60px;
-  padding: 20px 0 20px 0;
+  padding: 20px 10px;
+  background: #fff;
+  margin-top: 16px;
+  border-top: 1px solid #eee;
 }
 
 .navrow {

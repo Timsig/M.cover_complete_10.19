@@ -57,17 +57,18 @@ const MoreAboutYou = () => (
           />
         </section>
       </div>
-        <Footer>
-          <div className="navrow">
-             <Navbutton style="primary" to="/journey-selector" cta="Next >" />
-             <Navbutton style="secondary" to="/about-you" cta="< Back" />         
-          </div>
-          <div className="saverow">
-            <Navbutton type="secondary" cta="Save" />
-          </div>
-        </Footer>
+    </main>
+    <Footer>
+      <div className="navrow">
+          <Navbutton style="primary" to="/journey-selector" cta="Next >" />
+          <Navbutton style="secondary" to="/about-you" cta="< Back" />         
+      </div>
+      <div className="saverow">
+        <Navbutton type="secondary" cta="Save" />
+      </div>
+    </Footer>
         
-      </main>
+      
   </React.Fragment>  
 )
 

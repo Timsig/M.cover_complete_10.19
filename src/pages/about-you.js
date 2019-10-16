@@ -43,31 +43,32 @@ class  AboutYou extends React.Component {
     }
     return(
       <React.Fragment>
-      <Headertext headline="About you" />
-      <main>
-        <div className="questions-wrapper">
-          <form id="about-you" onSubmit={this.handleSubmit}>
-          <Qbuttons
-            id="title"
-            question="Title"
-            options={["Mr", "Mrs", "Miss", "Ms", "Dr"]}
-          />
-          <Qtext id="firstName" question="First name" reference={input => this.firstName = input}/>
-            <Qtext id="surName" question="Surname" reference={input => this.surName = input}/>
-          <Qdate id="DOB" question="Date of birth" />
-          <Qrevealer
-            id="Address"
-            question="What's your postcode? Enter your home postcode and press ‘Find address’ – if you’re looking to insure a property other than the one you live in, you can add it later."
-            selectId="address"
-            selectQ="Please choose your address"
-            selectOptions={["1 Acacia Avenue, Wingbourne", "2 Acacia Avenue, Wingbourne", "3 Acacia Avenue, Wingbourne"]}
-          />
-          <Qtext
-            id="email"
-            question="What email address should we send your documents to?"
-          />
-        </form>
+        <Headertext headline="About you" />
+        <main>
+          <div className="questions-wrapper">
+            <form id="about-you" onSubmit={this.handleSubmit}>
+              <Qbuttons
+                id="title"
+                question="Title"
+                options={["Mr", "Mrs", "Miss", "Ms", "Dr"]}
+              />
+              <Qtext id="firstName" question="First name" reference={input => this.firstName = input}/>
+                <Qtext id="surName" question="Surname" reference={input => this.surName = input}/>
+              <Qdate id="DOB" question="Date of birth" />
+              <Qrevealer
+                id="Address"
+                question="What's your postcode? Enter your home postcode and press ‘Find address’ – if you’re looking to insure a property other than the one you live in, you can add it later."
+                selectId="address"
+                selectQ="Please choose your address"
+                selectOptions={["1 Your Road, Yourtown", "2 Your Road, Yourtown", "3 Your Road, Yourtown", "4 Your Road, Yourtown", "5 Your Road, Yourtown"]}
+              />
+              <Qtext
+                id="email"
+                question="What email address should we send your documents to?"
+              />
+            </form>
           </div >
+        </main>
         <Footer form="about-you">
           <div className="navrow">
             <Submitbutton style="primary" cta="Next >" form="about-you" />
@@ -75,9 +76,7 @@ class  AboutYou extends React.Component {
           <div className="saverow">
             <Navbutton type="secondary" cta="Save" />
           </div>
-        </Footer>
-      
-      </main>
+        </Footer>      
       </React.Fragment>
     )
   }

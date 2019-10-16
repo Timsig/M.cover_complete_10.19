@@ -45,17 +45,18 @@ class addItem extends React.Component {
               <Qtext id="item-value" question="Value of the item" textBefore="£" reference={input => this.itemValue = input}/>
               <Qradiolist id="where-covered" question="Where do you want the item to be covered?" options={["At home", "Anywhere", "In the bank"]}/>
             </form>
-            <Footer type="submit" form="about-you">
-              <div className="navrow">
-                <Submitbutton style="primary" cta="Add this item >" form="specItem" />
-                <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
-              </div>
-              <div className="saverow">
-                <Navbutton type="secondary" cta="Save" />
-              </div>
-            </Footer>
           </div>
         </main>
+        <Footer type="submit" form="about-you">
+          <div className="navrow">
+            <Submitbutton style="primary" cta="Add this item >" form="specItem" />
+            <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
+          </div>
+          <div className="saverow">
+            <Navbutton type="secondary" cta="Save" />
+          </div>
+        </Footer>
+          
       </React.Fragment>
     )
   }

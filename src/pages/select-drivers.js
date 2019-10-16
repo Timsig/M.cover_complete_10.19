@@ -86,18 +86,18 @@ class selectDrivers extends React.Component {
               <button className="button-link" onClick={this.handleAddDriver}>+ Add another driver</button>
             </form>
           </div>
-            
-            <Footer>
-              <div className="navrow">
-                <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
-                <Navbutton to="/car-questions" style="secondary" cta="< Back" />
-              </div>
-              <div className="saverow">
-                <Navbutton style="secondary" cta="Save" />
-              </div>
-            </Footer>
-          
         </main>
+        <Footer>
+          <div className="navrow">
+            <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
+            <Navbutton to="/car-questions" style="secondary" cta="< Back" />
+          </div>
+          <div className="saverow">
+            <Navbutton style="secondary" cta="Save" />
+          </div>
+        </Footer>
+          
+        
       </React.Fragment>
     )
   }

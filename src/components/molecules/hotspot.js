@@ -8,7 +8,7 @@ const Hotspot = ({ left, top, width, height, dest }) => {
     top: top,
     left: left,
     position: "absolute",
-    backgroundColor: "rgba(255,0,0,0.2)",
+    // backgroundColor: "rgba(255,0,0,0.2)",
   }
 
   return (

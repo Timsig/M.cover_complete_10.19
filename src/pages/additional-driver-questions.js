@@ -123,19 +123,20 @@ class additionalDriverQues extends React.Component {
             </section>
           </form>
           </div>
-            <footer>
-              <div className="navrow">
-                <Submitbutton style="primary" cta="Add this driver >" form="add-driver" />
-                <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-              </div>
-              <div className="saverow">
-                <Navbutton style="secondary" cta="Save" />
-              </div>
-            </footer>
+        </main>
+        <footer>
+          <div className="navrow">
+            <Submitbutton style="primary" cta="Add this driver >" form="add-driver" />
+            <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
+          </div>
+          <div className="saverow">
+            <Navbutton style="secondary" cta="Save" />
+          </div>
+        </footer>
 
         
           
-        </main>
+        
       </React.Fragment>
       
     )

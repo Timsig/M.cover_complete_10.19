@@ -84,6 +84,7 @@ class builder extends React.Component {
             <DriverCard key={key} driver={this.props.drivers[driver]} />
             
           ))}
+        </div>
           <Footer>
             <div className="navrow">
               <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
@@ -93,7 +94,7 @@ class builder extends React.Component {
               <Navbutton type="secondary" cta="Save" />
             </div>
           </Footer>
-        </div>
+        
         
       </React.Fragment>
     )

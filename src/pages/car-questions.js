@@ -129,6 +129,7 @@ class Carquestions extends React.Component {
             />
           </section>   
         </div>
+        </main>
         <Footer>
           <div className="navrow">
             <Navbutton style="primary" to="/select-drivers" cta="Add drivers to this car >" /> 
@@ -138,7 +139,7 @@ class Carquestions extends React.Component {
               <Navbutton style="secondary" cta="Save" />
             </div>
         </Footer>
-      </main>
+      
       </React.Fragment>
     )
   }

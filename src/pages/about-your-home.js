@@ -137,6 +137,7 @@ const IndexPage = () => (
         />
       </section>   
       </div >
+    </main>
 
     <Footer>
       <div className="navrow">
@@ -148,7 +149,7 @@ const IndexPage = () => (
       </div>
     </Footer>
    
-  </main>
+  
   </React.Fragment>
 )
 

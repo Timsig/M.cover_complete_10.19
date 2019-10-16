@@ -32,9 +32,9 @@ class JourneySelector extends React.Component{
     }
     return(
       <React.Fragment>
-        <Header image="https://res.cloudinary.com/lwcqviihu/image/upload/v1570458150/m.cover_complete/Journey_selector.jpg" />
-        <Hotspotaction left={35} top={602} width={250} height={50} action={this.handleJourneySelect} id="motor"/>
-        <Hotspotaction left={35} top={961} width={250} height={50} action={this.handleJourneySelect} id="home" />
+        <Header image="https://res.cloudinary.com/lwcqviihu/image/upload/v1571252478/m.cover_complete/Journey_selector.jpg" />
+        <Hotspotaction left={35} top={503} width={250} height={50} action={this.handleJourneySelect} id="motor"/>
+        <Hotspotaction left={35} top={768} width={250} height={50} action={this.handleJourneySelect} id="home" />
       </React.Fragment >
     )
   }
