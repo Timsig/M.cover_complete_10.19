@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/global-styles.css"
+import "./styles/global-styles.scss"
 import ScrollToTop from "./components/scroll-to-top"
 import IntroPage from "./pages/intro-page"
 import AboutYou from './pages/about-you'
