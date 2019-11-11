@@ -60,11 +60,12 @@ const MoreAboutYou = () => (
     </main>
     <Footer>
       <div className="navrow">
+        <p>By clicking below, you confirm that the above statements are true</p>
           <Navbutton style="primary" to="/journey-selector" cta="Next >" />
           <Navbutton style="secondary" to="/about-you" cta="< Back" />         
       </div>
       <div className="saverow">
-        <Navbutton type="secondary" cta="Save" />
+        <Navbutton style="secondary" cta="Save" />
       </div>
     </Footer>
         

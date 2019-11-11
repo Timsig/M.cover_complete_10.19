@@ -62,8 +62,11 @@ class Qrevealer extends Component {
             value={this.state.inputValue}
             onChange={this.updateInputValue}
             size="9"
+            style={{
+              marginRight: "8px",
+            }}
           />
-          <button onClick={this.open}>Submit</button>
+          <button className="primary btn-x-small" onClick={this.open}>Find address</button>
         </div>
         {this.state.error ? errorMessage : ""}
         <AnimateHeight duration={500} height={this.state.height}>

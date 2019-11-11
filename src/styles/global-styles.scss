@@ -11,12 +11,13 @@ $livvic: "Livvic", sans-serif;
 $primary-blue: #0095f4;
 $primary-hover-blue: #03589B;
 $ocean-blue: #04589b;
-$accessible-green: #64AE72;
+$accessible-green: #178830;
 $grass-green: #189138;
-$slate: #9A9A9A;
+$slate: #3d3d3d;
 $warm-grey: #FCF9F2;
 $white: #fff;
 $error-red: #e03a3e;
+$drop-shadow: #e8eced;
 
 
 
@@ -75,7 +76,43 @@ header {
 }
 
 main {
-  padding: 0 10px 0 10px;
+  padding: 0 16px 0 16px;
+}
+
+/*********HEADERS**********************/
+
+h1, h2, h3 {
+  font-family: $livvic;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 300;
+  margin: 20px 0 20px 0;
+}
+
+.prepop-questions h3 {
+  margin: 20px 0 0 0;
+  color: $accessible-green;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
 }
 
 /******* Form field molecules general rules *********/
@@ -83,9 +120,7 @@ main {
 input,
 textarea,
 select,
-label,
-button {
-  // 
+label {
   font-size: 1em;
   display: block;
 }
@@ -96,31 +131,20 @@ select {
   padding: 5px;
 }
 
-button {
-  font-family: $livvic;
+label, .question {
   font-weight: 600;
-  padding: 0 10px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  line-height: 30px;
-  border-radius: 16px;
 }
-
-// button:hover {
-//   border: 1px #333 solid;
-// }
 
 label {
   margin-bottom: 10px;
+  line-height: 20px;
 }
 
 .qwrap-text label,
 .qwrap-select label,
 .qwrap-revealer label {
   margin-top: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 12px;
 }
 
 .errorMessage {
@@ -144,7 +168,7 @@ label {
 }
 
 .page-head-wrap h1 {
-  margin: 0 10px 0 10px;
+  margin: 0 16px 0 16px;
 }
 
 .fake-btn-block {
@@ -155,6 +179,9 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+
 
 /******* Form field wrappers *********/
 
@@ -167,12 +194,10 @@ h1 {
 
 .questions-wrapper {
   background: #fff;
-  padding-bottom: 10px;
+  padding: 8px 16px 8px 16px;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 1px 1px 2px 1px rgba(0,0,0,0.09);
   border-radius: 8px;
-    h3 {
-      margin-left: 10px;
-    }
+    
     .qwrap:last-child {
       border-bottom: none;
     }
@@ -187,11 +212,10 @@ h1 {
 }
 
 .qwrap {
-  border-bottom: 1px solid $slate;
-  padding: 20px 10px 20px 10px;
+  padding: 0 0 16px 0; 
   .qwrap {
     border-bottom: none;
-    padding: 20px 0px 20px 0px;
+    padding: 16px 0px 16px 0px;
   }
 }
 
@@ -252,6 +276,7 @@ h1 {
     color: $ocean-blue;
     padding: 10px 20px;
     margin-right: 8px;
+    margin-bottom: 8px;
     border: 1px solid $ocean-blue;
     border-radius: 21px;
   }
@@ -326,7 +351,7 @@ input[type="checkbox"]:checked + label {
 /******* Pepopulated questioins *********/
 
 .prepop-questions {
-  padding: 20px 10px 20px 10px;
+  padding: 20px 0 20px 0;
 }
 
 .prepop-wrap {
@@ -342,47 +367,92 @@ input[type="checkbox"]:checked + label {
   *:first-child {
     margin-left: 0; 
   }
+  p {
+    line-height: 30px;
+    font-weight: 600;
+  }
 }
 
 /******* Footer rules *********/
 footer {
   min-height: 60px;
-  padding: 20px 10px;
-  background: #fff;
-  margin-top: 16px;
-  border-top: 1px solid #eee;
+  padding: 0 16px;
+  
   a {
     text-decoration: none;
   }
 }
 
 .navrow {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: row-reverse;
+
+  .secondary {
+    margin-top: 16px;
+  }
 }
 
 .saverow {
-  margin-top: 20px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row-reverse;
+
+  a {
+    width: 100%;
+  }
+
+  
 }
 
-/******* navbutton rules *********/
+/******* button rules *********/
+button {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: $livvic;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 24px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  line-height: 44px;
+  max-height: 44px;
+  border-radius: 22px;
+  border: none;
+  width: 100%;
+}
+
+button.btn-x-small {
+  line-height: 36px;
+  font-size: 16px;
+}
 
 .primary {
   background-color: $primary-blue;;
   color: #fff;
+
+  &:hover {
+    background-color: $ocean-blue;
+  }
 }
 
-.primary:hover {
-  background-color: $ocean-blue;
+.secondary {
+  background-color: $white;
+  color: $ocean-blue;
+  border: 1px solid $ocean-blue;
+
+  &:hover {
+    border: 1px solid $slate;
+    color: $slate;
+  }
 }
 
-/*****************************Need rules for secondary here*/
+
 .disabled {
   color: #333;
   background-color: #eee;
