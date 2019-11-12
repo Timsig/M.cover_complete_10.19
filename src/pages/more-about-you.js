@@ -59,13 +59,12 @@ const MoreAboutYou = () => (
       </div>
     </main>
     <Footer>
+      <p>By clicking below, you confirm that the above statements are true</p>
       <div className="navrow">
-        <p>By clicking below, you confirm that the above statements are true</p>
-          <Navbutton style="primary" to="/journey-selector" cta="Next >" />
-          <Navbutton style="secondary" to="/about-you" cta="< Back" />         
-      </div>
-      <div className="saverow">
-        <Navbutton style="secondary" cta="Save" />
+        
+          <Navbutton style="primary" to="/journey-selector" cta="Next  >" />
+          <Navbutton style="secondary" to="/about-you" cta="<  Back" />
+          <Navbutton style="secondary" cta="Save" />         
       </div>
     </Footer>
         

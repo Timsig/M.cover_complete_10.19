@@ -70,10 +70,9 @@ class  AboutYou extends React.Component {
           </div >
         </main>
         <Footer form="about-you">
+          <p>By clicking below you confirm that the above statements are true</p>
           <div className="navrow">
             <Submitbutton style="primary" cta="Next >" form="about-you" />
-          </div>
-          <div className="saverow">
             <Navbutton style="secondary" cta="Save" />
           </div>
         </Footer>      

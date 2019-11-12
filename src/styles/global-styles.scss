@@ -8,6 +8,8 @@ container bg: #eee
 $muli: "Muli", sans-serif;
 $livvic: "Livvic", sans-serif;
 
+$container-width: 960px;
+
 $primary-blue: #0095f4;
 $primary-hover-blue: #03589B;
 $ocean-blue: #04589b;
@@ -18,13 +20,15 @@ $warm-grey: #FCF9F2;
 $white: #fff;
 $error-red: #e03a3e;
 $drop-shadow: #e8eced;
+$body-colour: $warm-grey;
+$mobile-bckground: #1b1f21;
 
 
 
 /******* Generic and container rules *********/
 
 html {
-  
+  font-size: 62.5%; 
   color: #333;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -35,7 +39,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1b1f21;
+  background-color: $body-colour;
 }
 
 .link {
@@ -45,7 +49,6 @@ body {
   text-decoration: underline;
   color: $ocean-blue; 
 }
-
 
 article,
 aside,
@@ -70,7 +73,8 @@ header {
 
 .container {
   background: $warm-grey;
-  width: 320px;
+  max-width: $container-width;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -131,6 +135,25 @@ select {
   padding: 5px;
 }
 
+input {
+  border: 1px solid #B8B8B8;
+  border-radius: 0.8rem;
+  color: #3d3d3d;
+  font-family: "Muli", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 37.2rem;
+  outline: none;
+  padding: 0.9rem 1.6rem;
+  position: relative;
+  max-width: 100%; }
+  input:focus, input:hover {
+    box-shadow: 0 0 0 1px #B8B8B8;
+    outline-offset: -0.2rem; }
+  input::placeholder {
+    color: #B8B8B8; }
+
 label, .question {
   font-weight: 600;
 }
@@ -179,9 +202,6 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
-
-
-
 
 /******* Form field wrappers *********/
 
@@ -256,8 +276,6 @@ h1 {
     margin-right: 8px;
   }
 }
-
-
 
 /******* Radio buttons group rules *********/
 
@@ -348,6 +366,35 @@ input[type="checkbox"]:checked + label {
   color: #333;
 }
 
+/******************Select rules****************/
+select {
+  border: 1px solid #B8B8B8;
+  border-radius: 0.8rem;
+  color: #3d3d3d;
+  font-family: "Muli", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 37.2rem;
+  outline: none;
+  padding: 0.9rem 1.6rem;
+  position: relative;
+  width: 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: $white;
+  // background-image: url(../img/select-arrow.svg);
+  background-position: right center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-right: 4.8rem;
+  text-indent: 0.1rem;
+  text-overflow: '';
+  width: auto;
+  z-index: 10; }
+
 /******* Pepopulated questioins *********/
 
 .prepop-questions {
@@ -358,8 +405,16 @@ input[type="checkbox"]:checked + label {
   padding: 20px 0 0 0;
   margin: 0;
   select {
-    max-height: 21px;
+    // max-height: 21px;
     display: inline-block;
+    border: 1px solid #178830;
+    // background-image: url(../img/select-arrow-valid.svg);
+    background-size: contain;
+    color: #3d3d3d;
+    font-family: "Muli", sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    width: auto;
   }
   * {
     margin: 0 10px 0 0;
@@ -376,21 +431,17 @@ input[type="checkbox"]:checked + label {
 /******* Footer rules *********/
 footer {
   min-height: 60px;
-  padding: 0 16px;
+  padding: 0 16px 32px 16px;
   
   a {
     text-decoration: none;
   }
 }
 
-.navrow {
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex-direction: row-reverse;
 
-  .secondary {
-    margin-top: 16px;
-  }
+
+.secondary {
+  margin-top: 16px;
 }
 
 .saverow {
@@ -402,10 +453,23 @@ footer {
 
   a {
     width: 100%;
-  }
-
-  
+  } 
 }
+
+ @media (min-width: 600px) {
+    .navrow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navrow :nth-child(1) { order: 3; }
+
+    .secondary {
+      margin-top: 0;
+    }
+  } 
 
 /******* button rules *********/
 button {
@@ -424,7 +488,13 @@ button {
   max-height: 44px;
   border-radius: 22px;
   border: none;
-  width: 100%;
+  // width: 100%;
+}
+
+@media (max-width: 600px){
+  button {
+    width: 100%;
+  }
 }
 
 button.btn-x-small {

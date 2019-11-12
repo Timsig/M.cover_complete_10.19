@@ -131,12 +131,11 @@ class Carquestions extends React.Component {
         </div>
         </main>
         <Footer>
+          <p>By clicking below, you confirm that the above statements are true</p>
           <div className="navrow">
             <Navbutton style="primary" to="/select-drivers" cta="Add drivers to this car >" /> 
-              <Navbutton to="/builder-page" style="secondary" cta="< Back" />
-            </div>
-            <div className="saverow">
-              <Navbutton style="secondary" cta="Save" />
+            <Navbutton to="/builder-page" style="secondary" cta="< Back" />
+            <Navbutton style="secondary" cta="Save" />
             </div>
         </Footer>
       
