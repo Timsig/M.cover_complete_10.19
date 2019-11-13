@@ -20,6 +20,7 @@ $warm-grey: #FCF9F2;
 $white: #fff;
 $error-red: #e03a3e;
 $drop-shadow: #e8eced;
+$formfield-inactive: #b8b8b8;
 $body-colour: $warm-grey;
 $mobile-bckground: #1b1f21;
 
@@ -117,6 +118,11 @@ h4 {
   font-size: 18px;
   line-height: 24px;
   font-weight: 600;
+}
+
+.link {
+  cursor: pointer;
+  font-weight: 700;
 }
 
 /******* Form field molecules general rules *********/
@@ -221,10 +227,10 @@ h1 {
     .qwrap:last-child {
       border-bottom: none;
     }
-    .link {
+    &>.link {
       margin-left: 16px;
-      font-weight: 700;
     }
+    
 }
 
 .builder-wrapper>.questions-wrapper {
@@ -237,6 +243,10 @@ h1 {
     border-bottom: none;
     padding: 16px 0px 16px 0px;
   }
+}
+
+.licence {
+  margin-top: 32px;
 }
 
 .licence .inline-form-field {
@@ -331,42 +341,89 @@ input[type="radio"]:checked + label {
 
 /******* Checkbox rules *********/
 
-.checkbox-wrap {
+
+
+
+.qwrap-checkbox{
+  .checkbox-wrap {
   display: flex;
   align-items: center;
   label {
     margin-bottom: 0;
     margin-left: -25px;
-    padding-left: 30px;
+    padding-left: 24px;
     width: 100%;
     line-height: 40px;
-    border-bottom: 1px solid #fff;
+    // border-bottom: 1px solid #fff;
     cursor: pointer;
   }
 }
+  input[type="checkbox"] {
+    z-index: 300;
+    margin-left: 10px;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573664199/m.cover_hifi/checkbox.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
-.checkbox-wrap l
+  input[type="checkbox"]+label:hover, 
+  input[type="checkbox"]+label:focus,
+  input[type="checkbox"]:hover, 
+  input[type="checkbox"]:focus {
+    border: none;
+    box-shadow: none;
+  }
 
-input[type="checkbox"] {
-  z-index: 300;
-  margin-left: 10px;
-  transform: translateY(-2px);
-  cursor: pointer;
+  input[type="checkbox"]:checked {
+    background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573664051/m.cover_hifi/Checkbox--checked.svg);
+  }
+
+  // input[type="checkbox"]:checked + label {
+  //   background: #333;
+  //   color: #fff;
+  //   border-radius: 3px;
+  // }
+
+  .checkbox-link {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #333;
 }
-
-input[type="checkbox"]:checked + label {
-  background: #333;
-  color: #fff;
-  border-radius: 3px;
 }
-
-.checkbox-link {
-  font-weight: bold;
-  text-decoration: underline;
-  color: #333;
-}
-
 /******************Select rules****************/
+// select {
+//   border: 1px solid #B8B8B8;
+//   border-radius: 0.8rem;
+//   color: #3d3d3d;
+//   font-family: "Muli", sans-serif;
+//   font-size: 1.6rem;
+//   font-weight: 300;
+//   line-height: 1.5;
+//   max-width: 37.2rem;
+//   outline: none;
+//   padding: 0.9rem 1.6rem;
+//   position: relative;
+//   width: 100%;
+//   appearance: none;
+//   -moz-appearance: none;
+//   -webkit-appearance: none;
+//   background-color: $white;
+//   background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573647267/m.cover_hifi/droplist__symbol.svg);
+//   background-position: right center;
+//   background-repeat: no-repeat;
+//   box-sizing: border-box;
+//   max-width: 100%;
+//   padding-right: 4.8rem;
+//   text-indent: 0.1rem;
+//   text-overflow: '';
+//   width: auto;
+//   z-index: 10; }
+
 select {
   border: 1px solid #B8B8B8;
   border-radius: 0.8rem;
@@ -383,9 +440,9 @@ select {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-color: $white;
-  // background-image: url(../img/select-arrow.svg);
-  background-position: right center;
+  background-color: #FFFFFF;
+  background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573647267/m.cover_hifi/droplist__symbol.svg);
+  background-position: right 15px center;
   background-repeat: no-repeat;
   box-sizing: border-box;
   max-width: 100%;
@@ -393,7 +450,15 @@ select {
   text-indent: 0.1rem;
   text-overflow: '';
   width: auto;
-  z-index: 10; }
+  z-index: 10;
+  cursor: pointer; }
+  select:focus, select:hover {
+    box-shadow: 0 0 0 1px #B8B8B8;
+    outline-offset: -0.2rem; }
+  select::placeholder {
+    color: #B8B8B8; }
+  select::-ms-expand {
+    display: none; }
 
 /******* Pepopulated questioins *********/
 
@@ -408,8 +473,8 @@ select {
     // max-height: 21px;
     display: inline-block;
     border: 1px solid #178830;
-    // background-image: url(../img/select-arrow-valid.svg);
-    background-size: contain;
+    background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573647267/m.cover_hifi/prepop__droplist__symbol.svg);
+    background-size: 25px;
     color: #3d3d3d;
     font-family: "Muli", sans-serif;
     font-weight: 600;
@@ -539,6 +604,20 @@ button.btn-x-small {
   margin: 10px;
 }
 
+.button-link {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: $ocean-blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 8px;
+    :hover {
+      border: none;
+    }
+  }
+
 /******************************************CAR***********************************/
 
 .builder-wrapper {
@@ -641,19 +720,7 @@ button.btn-x-small {
   p {
     margin-top: 0;
   }
-  .button-link {
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    color: #04589b;
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: 600;
-    margin: 8px;
-    :hover {
-      border: none;
-    }
-  }
+  
 
 }
 

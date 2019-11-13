@@ -88,11 +88,9 @@ class selectDrivers extends React.Component {
           </div>
         </main>
         <Footer>
-          <div className="navrow">
+          <div className="navrow" style={{marginTop: "32px"}}>
             <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
             <Navbutton to="/car-questions" style="secondary" cta="< Back" />
-          </div>
-          <div className="saverow">
             <Navbutton style="secondary" cta="Save" />
           </div>
         </Footer>

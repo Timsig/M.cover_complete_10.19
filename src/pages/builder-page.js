@@ -89,9 +89,7 @@ class builder extends React.Component {
             <div className="navrow">
               <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
               <Navbutton style="secondary" cta="< Back" />
-            </div>
-            <div className="saverow">
-              <Navbutton type="secondary" cta="Save" />
+            <Navbutton style="secondary" cta="Save" />
             </div>
           </Footer>
         
