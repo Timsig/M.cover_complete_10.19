@@ -261,11 +261,11 @@ h1 {
 
 .datewrap { 
   #DOB-day, #DOB-month, #startDate-day, #startDate-month {
-  max-width: 40px;
+  max-width: 30px;
   margin-right: 10px;
   }
   #DOB-year, #startDate-year {
-    max-width: 80px;
+    max-width: 60px;
   }
 }
 
@@ -287,6 +287,10 @@ h1 {
   }
 }
 
+.bikes, .items {
+  display: flex;
+}
+
 /******* Radio buttons group rules *********/
 
 .inline-radio-group {
@@ -296,7 +300,7 @@ h1 {
   div {
     display: inline-block;
   }
-  label {
+  input[type="radio"] + label {
     display: inline-block;
     cursor: pointer;
     font-family: $livvic;
@@ -308,7 +312,7 @@ h1 {
     border: 1px solid $ocean-blue;
     border-radius: 21px;
   }
-  label:hover {
+  input[type="radio"] + label:hover {
     border: 1px solid $slate;
     color: $slate;
   }
@@ -319,31 +323,38 @@ h1 {
   }
 }
 
-.numbers label {
-  margin-right: -1px;
-}
-
 /******* Radiolist *********/
 input[type="radio"] {
-  z-index: 301;
-  transform: translateY(-3px);
-}
+    z-index: 300;
+    margin-left: 10px;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573664099/m.cover_hifi/radiobutton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
-input[type="radio"]:hover {
-  border: 1px solid $slate;
-  color: $slate;
-}
+  input[type="radio"]+label:hover, 
+  input[type="radio"]+label:focus,
+  input[type="radio"]:hover, 
+  input[type="radio"]:focus {
+    border: none;
+    box-shadow: none;
+  }
 
-input[type="radio"]:checked + label {
-  background: $grass-green;
-  color: #fff;
-}
+  input[type="radio"]:checked {
+    background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573664098/m.cover_hifi/radiobutton--checked.svg);
+  }
+
+// input[type="radio"]:checked + label {
+//   background: $grass-green;
+//   color: #fff;
+// }
 
 /******* Checkbox rules *********/
-
-
-
-
 .qwrap-checkbox{
   .checkbox-wrap {
   display: flex;
@@ -383,46 +394,13 @@ input[type="radio"]:checked + label {
     background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573664051/m.cover_hifi/Checkbox--checked.svg);
   }
 
-  // input[type="checkbox"]:checked + label {
-  //   background: #333;
-  //   color: #fff;
-  //   border-radius: 3px;
-  // }
-
   .checkbox-link {
     font-weight: bold;
     text-decoration: underline;
     color: #333;
-}
+  }
 }
 /******************Select rules****************/
-// select {
-//   border: 1px solid #B8B8B8;
-//   border-radius: 0.8rem;
-//   color: #3d3d3d;
-//   font-family: "Muli", sans-serif;
-//   font-size: 1.6rem;
-//   font-weight: 300;
-//   line-height: 1.5;
-//   max-width: 37.2rem;
-//   outline: none;
-//   padding: 0.9rem 1.6rem;
-//   position: relative;
-//   width: 100%;
-//   appearance: none;
-//   -moz-appearance: none;
-//   -webkit-appearance: none;
-//   background-color: $white;
-//   background-image: url(https://res.cloudinary.com/lwcqviihu/image/upload/v1573647267/m.cover_hifi/droplist__symbol.svg);
-//   background-position: right center;
-//   background-repeat: no-repeat;
-//   box-sizing: border-box;
-//   max-width: 100%;
-//   padding-right: 4.8rem;
-//   text-indent: 0.1rem;
-//   text-overflow: '';
-//   width: auto;
-//   z-index: 10; }
 
 select {
   border: 1px solid #B8B8B8;
@@ -501,9 +479,10 @@ footer {
   a {
     text-decoration: none;
   }
+  p{
+    text-align: right;
+  }
 }
-
-
 
 .secondary {
   margin-top: 16px;
@@ -704,7 +683,9 @@ button.btn-x-small {
 
 .item-card {
   padding: 8px;
-  margin-bottom: 16px;
+  align-self: stretch;
+  flex-basis: 45%;
+  margin: 0 32px 0 0;
   .item-type {
     font-weight: 700;
     margin-bottom: 8px;

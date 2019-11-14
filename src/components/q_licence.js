@@ -5,6 +5,7 @@ class Licence extends React.Component {
     super(props)
     this.state = {
       valid: false,
+      invalid: false,
       success: false,
       inputValue: "",
     }
@@ -19,10 +20,12 @@ class Licence extends React.Component {
         if (this.state.inputValue.length >= 11) {
           this.setState({
             valid: true,
+            invalid: false,
           })
         } else {
           this.setState({
             valid: false,
+            success: false,
           })
         }
       }
@@ -35,6 +38,10 @@ class Licence extends React.Component {
       this.setState({
         success: true,
       })
+    }else{
+      this.setState({
+        invalid: true,
+      })
     }
   }
 
@@ -42,6 +49,12 @@ class Licence extends React.Component {
     const successMessage = (
       <div className="successMessage">
         We have successfully retrieved your details
+      </div>
+    )
+
+    const failMessage = (
+      <div className="errorMessage">
+        You need to enter 11 characters to complete the licence number
       </div>
     )
 
@@ -69,6 +82,7 @@ class Licence extends React.Component {
         
         <p className="link">I don't know the licence number</p>
         {this.state.success ? successMessage : ""}
+        {this.state.invalid ? failMessage : ""}
 
         {/* {this.state.error ? errorMessage : ""} */}
       </div>

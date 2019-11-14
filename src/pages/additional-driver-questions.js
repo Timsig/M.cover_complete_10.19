@@ -125,12 +125,12 @@ class additionalDriverQues extends React.Component {
           </div>
         </main>
         <Footer>
-          <p>By clicking bleow, you confirm that the above statements are true.</p>
+          <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             
             <Submitbutton style="primary" cta="Add this driver >" form="add-driver" />
             <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save" />
+            <Navbutton style="secondary" cta="Save for later" />
           </div>
         </Footer>   
       </React.Fragment>

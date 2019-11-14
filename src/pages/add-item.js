@@ -47,13 +47,11 @@ class addItem extends React.Component {
             </form>
           </div>
         </main>
-        <Footer type="submit" form="about-you">
+        <Footer>
+          <p></p>
           <div className="navrow">
             <Submitbutton style="primary" cta="Add this item >" form="specItem" />
-            <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
-          </div>
-          <div className="saverow">
-            <Navbutton type="secondary" cta="Save" />
+            <Navbutton style="secondary" cta="< Back" to="/about-your-home" />            
           </div>
         </Footer>
           

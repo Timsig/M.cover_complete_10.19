@@ -103,19 +103,19 @@ class coverForCar extends React.Component {
               <h3>Please check the following statements:</h3>
               <Qprepop
                 id="registeredKeeper"
-                textbefore={this.state.ncdHolder}
+                textbefore={this.state.ncdHolder || "This driver"}
                 options={["is", "is not"]}
                 textafter="the registered keeper of this car"
               />
               <Qprepop
                 id="legalOwner"
-                textbefore={this.state.ncdHolder}
+                textbefore={this.state.ncdHolder || "This driver"}
                 options={["is", "is not"]}
                 textafter="is the legal owner of this car"
               />
               <Qprepop
                 id="ncdEarnt"
-                textbefore={this.state.ncdHolder + " earnt this no claim discount"}
+                textbefore={(this.state.ncdHolder || "This driver") + " earnt this no claim discount"}
                 options={["Driving this or another car in the UK",
                   "Driving this or another car overseas"]}
               />
@@ -123,12 +123,11 @@ class coverForCar extends React.Component {
           </div>
         </main>
         <Footer>
+          <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
             <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-          </div>
-          <div className="saverow">
-            <Navbutton style="secondary" cta="Save" />
+            <Navbutton style="secondary" cta="Save for later" />
           </div>
         </Footer>
 

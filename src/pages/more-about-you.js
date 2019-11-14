@@ -64,7 +64,7 @@ const MoreAboutYou = () => (
         
           <Navbutton style="primary" to="/journey-selector" cta="Next  >" />
           <Navbutton style="secondary" to="/about-you" cta="<  Back" />
-          <Navbutton style="secondary" cta="Save" />         
+          <Navbutton style="secondary" cta="Save for later" />         
       </div>
     </Footer>
         

@@ -39,34 +39,35 @@ class homeItems extends React.Component {
       <React.Fragment>
         <Headertext headline="Your bikes and items" />
         <div className="builder-wrapper">
-          <h2>Bikes</h2>
           
-          <div className="add-item">
-            <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1571063698/m.cover_complete/add_bike.png" />  
-          </div>
-            
+          <h2>Bikes</h2>
+          <div className="bikes">  
+            <div className="add-item">
+              <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1571063698/m.cover_complete/add_bike.png" />  
+            </div>
+          </div>  
           <Qselect id="bikesAway" question="How much cover do you want for bicycles that you take away from home that are worth less that £1,000 each?" options={["No cover", "Up to £2,000", "Up to £3,000", "Up to £4,000", "Up to £5,000"]} />
+          
           <h2>Items</h2>
-            {this.props.items.map((item, i) => (
-              <Itemcard key={i} item={item} />
-            ))}
-          <div className="add-item">
-            <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1571063698/m.cover_complete/add_item.png" />
-            <Hotspot left={16} top={72} width={117} height={36} dest="/add-item" />
+          <div className="items">
+              {this.props.items.map((item, i) => (
+                <Itemcard key={i} item={item} />
+              ))}
+            <div className="add-item">
+              <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1571063698/m.cover_complete/add_item.png" />
+              <Hotspot left={16} top={72} width={117} height={36} dest="/add-item" />
+            </div>
           </div>
-          <Qselect id="unspecItems" question="How much cover do you want for items that you take away from home that are worth less than £2,000 each?" options={["No cover", "Up to £2,500", "Up to £3,000", "Up to £4,000", "Up to £5,000", "Up to £6,000", "Up to £7,000", "Up to £8,000", "Up to £9,000", "Up to £10,000", "Up to £11,000", "Up to £12,000", "Up to £13,000", "Up to £14,000", "Up to £15,000"]} />
+          <Qselect id="unspecItems" question="How much cover do you want for items that you take away from home that are worth less than £2,000 each?" options={["No cover", "Up to £2,500", "Up to £3,000", "Up to £4,000", "Up to £5,000", "Up to £6,000", "Up to £7,000", "Up to £8,000", "Up to £9,000", "Up to £10,000", "Up to £11,000", "Up to £12,000", "Up to £13,000", "Up to £14,000", "Up to £15,000"]} /> 
         </div>
           <Footer>
             <div className="navrow">
               <Actionbutton style="primary" action={this.homeComplete} cta="Get quote >" />
               <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
-            </div>
-            <div className="saverow">
-              <Navbutton type="secondary" cta="Save" />
+              <Navbutton style="secondary" cta="Save for later" />
             </div>
           </Footer>
          
-
       </React.Fragment>
     )
   }

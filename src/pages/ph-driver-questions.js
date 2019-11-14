@@ -37,7 +37,7 @@ class phDriverQues extends React.Component {
   
   render(){
     if(this.state.redirect) {
-      return<Redirect to="/select-drivers" />
+      return<Redirect to="/cover-for-car" />
     }
     return (
       <React.Fragment>
@@ -78,7 +78,8 @@ class phDriverQues extends React.Component {
             </section>
           </div>
         </main>
-        <footer>
+        <Footer>
+          <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             <Actionbutton
               style="primary"
@@ -87,14 +88,10 @@ class phDriverQues extends React.Component {
               cta="Add this driver >"
             />
             <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
+            <Navbutton style="secondary" cta="Save for later" />
           </div>
-          <div className="saverow">
-            <Navbutton style="secondary" cta="Save" />
-          </div>
-        </footer>
-          
-        
-    </React.Fragment >
+        </Footer>
+      </React.Fragment >
     )
   }
 }

@@ -81,11 +81,6 @@ const IndexPage = () => (
           options={["your main home", "second/holiday home", "let to tenants", "B&B"]}   
         />
         <Qprepop
-          id="owned"
-          textbefore="is"
-          options={["owned with a mortgage", "owned outright", "shared ownership", "rented"]}
-        />
-        <Qprepop
           id="occupation"
           textbefore="is occupied by you and your family"
           options={["only", "and lodgers", "and paying guests", "and housemates", "and B&B guests"]}
@@ -140,12 +135,11 @@ const IndexPage = () => (
     </main>
 
     <Footer>
+      <p>By clicking below, you confirm that the above statements are true.</p>
       <div className="navrow">
         <Navbutton style="primary" to="/home-items" cta="Cover for your posessions >"  />
         <Navbutton style="secondary" cta="< Back" />
-      </div>
-      <div className="saverow">
-        <Navbutton type="secondary" cta="Save" />
+        <Navbutton style="secondary" cta="Save for later" />
       </div>
     </Footer>
    
