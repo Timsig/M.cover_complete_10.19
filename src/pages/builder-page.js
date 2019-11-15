@@ -57,27 +57,29 @@ class builder extends React.Component {
     if (this.state.redirect){
       return <Redirect to={this.state.nextDest} />
     }
-    let left = this.state.carEntered ? 166 : 16
+    let left = this.state.carEntered ? 160 : 18
     let theAction = this.state.carEntered ? this.retrieveCar : this.carEntered
     
     //Logic to determine which card to display
     let theCard
     if(this.state.currentCar === "car1") {
-      theCard = this.state.carEntered ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1570458983/m.cover_complete/add_car1b.png" : "https://res.cloudinary.com/lwcqviihu/image/upload/v1570458824/m.cover_complete/add_car1.png"
+      theCard = this.state.carEntered ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Add-car-ABC.png" : "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Add-car-blank.png"
     }else{
-      theCard = this.state.carEntered ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1570459091/m.cover_complete/add_car2b.png" : "https://res.cloudinary.com/lwcqviihu/image/upload/v1570459052/m.cover_complete/add_car2.png"
+      theCard = this.state.carEntered ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Add-car-DEF.png" : "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Add-car-blank.png"
     }
     return(
       <React.Fragment>
         <Headertext headline="Your cars and drivers" />
         <div className="builder-wrapper">
           <h2>Cars</h2>
-          {Object.keys(this.props.cars).map((keyName, i) => (
-            <CarCard key={keyName} car={this.props.cars[keyName]}/>
-          ))}
-          <div className="add-car">
-            <img src={theCard} />
-            <HotspotAction left={left} top={75} width={121} height={40} action={theAction} />
+          <div className="cars">
+            {Object.keys(this.props.cars).map((keyName, i) => (
+              <CarCard key={keyName} car={this.props.cars[keyName]}/>
+            ))}
+            <div className="add-car">
+              <img src={theCard} />
+              <HotspotAction left={left} top={75} width={121} height={40} action={theAction} />
+            </div>
           </div>
           {this.props.drivers.length > 0 && <h2>Drivers</h2>}
           {this.props.drivers.map((key, driver) => (

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import Header from "../components/header"
+import Headertext from "../components/header_text"
 import Qtext from "../components/q_textinput"
 import Qselect from "../components/q_select"
 import Qyesno from "../components/q_yesno"
@@ -26,12 +26,13 @@ class Carquestions extends React.Component {
   }
   
   render() {
-    const headerImage = this.props.currentCar === "car1" ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525791/m.cover_complete/car1_returned-details.png" :
-      "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525791/m.cover_complete/car2_returned-details.png"
+    const headerImage = this.props.currentCar === "car1" ? "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Car-details-head-ABC.png" :
+      "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Car-details-head-DEF.png"
     return (
       <React.Fragment>
-        <Header text="Tell us more about this car" image={headerImage} />
+        <Headertext headline="Tell us more about this car" />
         <main>
+          <img src={headerImage} />
           <div className="questions-wrapper">
           <Qselect
             question="When was this car bought?"

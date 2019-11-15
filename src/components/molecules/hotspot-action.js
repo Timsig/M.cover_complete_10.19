@@ -8,7 +8,7 @@ const HotspotAction = ({ left, top, width, height, action, id }) => {
     top: top,
     left: left,
     position: "absolute",
-    // backgroundColor: "rgba(255,0,0,0.2)",
+    backgroundColor: "rgba(255,0,0,0.2)",
     cursor: "pointer",
   }
 

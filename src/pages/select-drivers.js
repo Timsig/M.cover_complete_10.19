@@ -46,13 +46,17 @@ class selectDrivers extends React.Component {
     
     //Get nodelist from the form
     const { drivers } = this.form
+    console.log(drivers);
     //Convert to array
-    const checkboxArray = Array.prototype.slice.call(drivers)
-    //Extract juust the checkked ones
+    const checkboxArray = Array.from(drivers)
+    console.log("Array " + checkboxArray.length);
+    //Extract juust the checkked ones 
     const checkedBoxes = checkboxArray.filter(input => input.checked)
+    console.log("Checked array " + checkedBoxes);
     //Get the values of the checked ones
     const checkedBoxValues = checkedBoxes.map(input => input.value)
     this.props.driversOnCar(checkedBoxValues)
+    console.log("Checked values: " + checkedBoxValues);
     
 
     //Work out whether policy holder driving history needs to be asked

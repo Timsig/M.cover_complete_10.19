@@ -5,7 +5,7 @@ class driverCheckBox extends React.Component {
   constructor(props) {
     super(props)
     this.toggleChecked = this.toggleChecked.bind(this)
-    console.log("Drivers on car: " + this.props.driversOnCar + "option: " + this.props.option)
+    
     let isChecked = this.props.theDrivers.includes(this.props.option)
     this.state = {
       isChecked: isChecked

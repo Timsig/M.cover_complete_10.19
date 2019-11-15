@@ -1,6 +1,6 @@
 import React from "react"
 import { Redirect } from "react-router-dom"
-import Header from "../components/header"
+import Headertext from "../components/header_text"
 import Hotspotaction from "../components/molecules/hotspot-action"
 import { Link } from "react-router-dom"
 
@@ -32,9 +32,16 @@ class JourneySelector extends React.Component{
     }
     return(
       <React.Fragment>
-        <Header image="https://res.cloudinary.com/lwcqviihu/image/upload/v1571252478/m.cover_complete/Journey_selector.jpg" />
-        <Hotspotaction left={35} top={503} width={250} height={50} action={this.handleJourneySelect} id="motor"/>
-        <Hotspotaction left={35} top={768} width={250} height={50} action={this.handleJourneySelect} id="home" />
+        <Headertext headline="Which cover starts first?" />
+        <main>
+          
+          <img src="https://res.cloudinary.com/lwcqviihu/image/upload/v1573820734/m.cover_hifi/J-selectah.png" />
+
+         
+        <Hotspotaction left={117} top={235} width={264} height={48} action={this.handleJourneySelect} id="motor"/>
+        <Hotspotaction left={597} top={235} width={264} height={48} action={this.handleJourneySelect} id="home" />
+          
+        </main>
       </React.Fragment >
     )
   }

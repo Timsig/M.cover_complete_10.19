@@ -52,7 +52,7 @@ class Main extends React.Component {
       cars: {
               },      
       car1: {
-        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car1Head.png",
+        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Car-card-ABC.png",
         detailsimage: "",
         reg: "ABC 123",
         entered: false,
@@ -61,7 +61,7 @@ class Main extends React.Component {
         ncdHolder: ""
       },
       car2: {
-        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1570525767/m.cover_complete/car-card_car2Head.png",
+        cardimage: "https://res.cloudinary.com/lwcqviihu/image/upload/v1573818327/m.cover_hifi/Car-card-DEF.png",
         detailsimage: "",
         reg: "DEF 456",
         entered: false,
@@ -145,8 +145,9 @@ class Main extends React.Component {
 
   //Add the checked drivers to the car
   driversOnCar(drivers) {
+    console.log("called" + [...drivers])
     //Check if policyholder driving details need to be captured
-    if(drivers.indexOf(this.state.policyHolder) < 0) {
+    if(!drivers.includes(this.state.policyHolder)) {
       return
     }
     let theCar = {...this.state[this.state.currentCar]}
