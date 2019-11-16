@@ -22,7 +22,8 @@ class builder extends React.Component {
       currentCar: this.props.currentCar,
       carEntered: false,
       redirect: false,
-      nextDest: ""
+      nextDest: "",
+      error: false
     }
 
   }
@@ -43,7 +44,12 @@ class builder extends React.Component {
 
   //To quote page and update motor as complete
   motorComplete() {
-    if (Object.keys(this.props.cars).length < 1) {return}
+    if (Object.keys(this.props.cars).length < 1) {
+      this.setState({
+        error: true
+      })
+      return
+    }
     this.props.lineComplete("motorComplete")
     let nextDest = this.props.firstLOB === "motor" ? "/quote-motor-flob" : "/quote-motor-slob"
     this.setState({
@@ -88,7 +94,8 @@ class builder extends React.Component {
           ))}
         </div>
           <Footer>
-            <div className="navrow">
+          {this.state.error ? <div className="errorMessage">You must add at least one car to get a quote.</div> : ""}
+          <div className="navrow" style={{ marginTop: "32px" }}>
               <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
               <Navbutton style="secondary" cta="< Back" />
             <Navbutton style="secondary" cta="Save for later" />

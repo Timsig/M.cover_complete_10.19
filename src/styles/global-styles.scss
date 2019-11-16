@@ -616,10 +616,18 @@ button.btn-x-small {
   padding: 20px 16px;
 }
 
+.cars {
+  margin-top: -16px;
+}
+
 .add-car {
   position:relative;
   margin-top: 16px;
   max-width: 49%;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .licenceno {

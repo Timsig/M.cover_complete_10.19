@@ -15,21 +15,24 @@ class selectDrivers extends React.Component {
   //Check if there are any drivers yet, otherwise just display policy holder
   let drivers = [...this.props.drivers]
   if (!this.props.policyHolderAsDriver) {
-    drivers.push(this.props.policyHolder)
+    drivers.unshift(this.props.policyHolder)
   } 
     this.state = {
       drivers: drivers,
       redirect: false,
-      nextDest: ""
+      nextDest: "",
+      error: false
     }   
   }
 
   handleAddDriver(event) {
     event.preventDefault()
     //Get nodelist from the form
-    const { drivers } = this.form
+    const drivers  = [this.form.drivers]
+    
     //Convert to array
-    const checkboxArray = Array.prototype.slice.call(drivers)
+    const checkboxArray = [...drivers]
+    
     //Extract juust the checkked ones
     const checkedBoxes = checkboxArray.filter(input => input.checked)
     //Get the values of the checked ones
@@ -43,35 +46,54 @@ class selectDrivers extends React.Component {
 
   selectDrivers(event) {
     event.preventDefault()
-    
-    //Get nodelist from the form
-    const { drivers } = this.form
-    console.log(drivers);
-    //Convert to array
-    const checkboxArray = Array.from(drivers)
-    console.log("Array " + checkboxArray.length);
-    //Extract juust the checkked ones 
-    const checkedBoxes = checkboxArray.filter(input => input.checked)
-    console.log("Checked array " + checkedBoxes);
-    //Get the values of the checked ones
-    const checkedBoxValues = checkedBoxes.map(input => input.value)
-    this.props.driversOnCar(checkedBoxValues)
-    console.log("Checked values: " + checkedBoxValues);
-    
 
-    //Work out whether policy holder driving history needs to be asked
-    if (checkedBoxValues.includes(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
+    let formData = new FormData(event.target)
+    let drivers = formData.getAll("drivers")
+    console.log(drivers)
+    // ["cat", "ferret"]
+    //Get nodelist from the form
+    // const drivers = [this.form.drivers]
+    // // const drivers = this.form.drivers
+    // console.log(drivers)
+    // console.log("Drivers length: ", drivers.length)
+    // //Convert to array
+    // // const checkboxArray = [ ...drivers ]
+    // // const checkboxArray = Array.from(drivers)
+    // let checkboxArray = []
+    // for (var item of drivers) {
+    //   checkboxArray.push(item);
+    // }
+    // console.log(checkboxArray)
+    // //Extract juust the checked ones
+    // const checkedBoxes = checkboxArray.filter(input => input.checked)
+    // //Get the values of the checked ones
+    // const checkedBoxValues = checkedBoxes.map(input => input.value)
+    this.props.driversOnCar(drivers)
+
+    //Check at least one driver added
+    if(drivers.length < 1) {
+      this.setState({
+        error: true,
+      })
+      return
+    }else{
+      this.setState({
+        error: false,
+      })
+    }
+    // Work out whether policy holder driving history needs to be asked
+    if (drivers.includes(this.props.policyHolder) && !this.props.policyHolderAsDriver) {
       this.setState({
         nextDest: "/ph-driver-questions"
       })
-    }else{
+    } else {
       this.setState({
         nextDest: "/cover-for-car"
       })
     }
-    this.setState ({
+    this.setState({
       redirect: true
-    })  
+    })
   }
 
   render() {
@@ -92,6 +114,7 @@ class selectDrivers extends React.Component {
           </div>
         </main>
         <Footer>
+          {this.state.error ? <div className="errorMessage">You must select at least one driver</div> : ""}
           <div className="navrow" style={{marginTop: "32px"}}>
             <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
             <Navbutton to="/car-questions" style="secondary" cta="< Back" />
