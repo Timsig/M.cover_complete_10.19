@@ -116,9 +116,9 @@ class selectDrivers extends React.Component {
         <Footer>
           {this.state.error ? <div className="errorMessage">You must select at least one driver</div> : ""}
           <div className="navrow" style={{marginTop: "32px"}}>
-            <Submitbutton style="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
-            <Navbutton to="/car-questions" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Submitbutton rank="primary" cta="Next >" name="action" value="choose-drivers" form="driverSelector" />
+            <Navbutton to="/car-questions" rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
           </div>
         </Footer>
           

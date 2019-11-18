@@ -62,9 +62,9 @@ const MoreAboutYou = () => (
       <p>By clicking below, you confirm that the above statements are true</p>
       <div className="navrow">
         
-          <Navbutton style="primary" to="/journey-selector" cta="Next  >" />
-          <Navbutton style="secondary" to="/about-you" cta="<  Back" />
-          <Navbutton style="secondary" cta="Save for later" />         
+          <Navbutton rank="primary" to="/journey-selector" cta="Next  >" />
+          <Navbutton rank="secondary" to="/about-you" cta="<  Back" />
+          <Navbutton rank="secondary" cta="Save for later" />         
       </div>
     </Footer>
         

@@ -96,9 +96,9 @@ class builder extends React.Component {
           <Footer>
           {this.state.error ? <div className="errorMessage">You must add at least one car to get a quote.</div> : ""}
           <div className="navrow" style={{ marginTop: "32px" }}>
-              <Actionbutton style="primary" action={this.motorComplete} cta="Get quote >" />
-              <Navbutton style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+              <Actionbutton rank="primary" action={this.motorComplete} cta="Get quote >" />
+              <Navbutton rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
             </div>
           </Footer>
         

@@ -12,7 +12,7 @@ const introPage = () => (
         <p>If you have your car and home insurance with us, we’ll make things simple by giving you one combined policy, with one renewal date. With that, you’ll benefit from our Defaqto Five Star rating and multicover savings.</p>
       
         <p>Just another reason why we’re Britain’s best-loved.</p>
-        <Navbutton style="primary" to="/about-you" cta="Start a multicover quote >" />
+        <Navbutton rank="primary" to="/about-you" cta="Start a multicover quote >" />
       </div>
     </div>
   </React.Fragment>

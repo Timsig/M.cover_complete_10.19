@@ -128,9 +128,9 @@ class additionalDriverQues extends React.Component {
           <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             
-            <Submitbutton style="primary" cta="Add this driver >" form="add-driver" />
-            <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Submitbutton rank="primary" cta="Add this driver >" form="add-driver" />
+            <Navbutton to="/select-drivers" rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
           </div>
         </Footer>   
       </React.Fragment>

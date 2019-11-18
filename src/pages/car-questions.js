@@ -134,9 +134,9 @@ class Carquestions extends React.Component {
         <Footer>
           <p>By clicking below, you confirm that the above statements are true</p>
           <div className="navrow">
-            <Navbutton style="primary" to="/select-drivers" cta="Add drivers to this car >" /> 
-            <Navbutton to="/builder-page" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Navbutton rank="primary" to="/select-drivers" cta="Add drivers to this car >" /> 
+            <Navbutton to="/builder-page" rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
             </div>
         </Footer>
       

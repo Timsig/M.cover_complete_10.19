@@ -137,9 +137,9 @@ const IndexPage = () => (
     <Footer>
       <p>By clicking below, you confirm that the above statements are true.</p>
       <div className="navrow">
-        <Navbutton style="primary" to="/home-items" cta="Cover for your posessions >"  />
-        <Navbutton style="secondary" cta="< Back" />
-        <Navbutton style="secondary" cta="Save for later" />
+        <Navbutton rank="primary" to="/home-items" cta="Cover for your posessions >"  />
+        <Navbutton rank="secondary" cta="< Back" />
+        <Navbutton rank="secondary" cta="Save for later" />
       </div>
     </Footer>
    

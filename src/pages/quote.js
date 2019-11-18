@@ -5,7 +5,7 @@ import Navbutton from "../components/molecules/navbutton"
 const quote = () => (
   <React.Fragment>
     <Headertext headline="The facilitator will take you to the quote page" />
-    <Navbutton style="primary" to="/about-your-home" cta="Proceed to home" />
+    <Navbutton rank="primary" to="/about-your-home" cta="Proceed to home" />
   </React.Fragment>
 )
   

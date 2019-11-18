@@ -134,9 +134,9 @@ class coverForCar extends React.Component {
           {this.state.error ? <div className="errorMessage">You need to select a main driver</div> : ""}
           <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
-            <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
-            <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Actionbutton rank="primary" cta="Add this car" action={this.addThisCar} />
+            <Navbutton to="/select-drivers" rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
           </div>
         </Footer>
 

@@ -72,8 +72,8 @@ class  AboutYou extends React.Component {
         <Footer form="about-you">
           <p>By clicking below you confirm that the above statements are true</p>
           <div className="navrow">
-            <Submitbutton style="primary" cta="Next >" form="about-you" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Submitbutton rank="primary" cta="Next >" form="about-you" />
+            <Navbutton rank="secondary" cta="Save for later" />
           </div>
         </Footer>      
       </React.Fragment>

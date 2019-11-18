@@ -62,9 +62,9 @@ class homeItems extends React.Component {
         </div>
           <Footer>
             <div className="navrow">
-              <Actionbutton style="primary" action={this.homeComplete} cta="Get quote >" />
-              <Navbutton style="secondary" cta="< Back" to="/about-your-home" />
-              <Navbutton style="secondary" cta="Save for later" />
+              <Actionbutton rank="primary" action={this.homeComplete} cta="Get quote >" />
+              <Navbutton rank="secondary" cta="< Back" to="/about-your-home" />
+              <Navbutton rank="secondary" cta="Save for later" />
             </div>
           </Footer>
          

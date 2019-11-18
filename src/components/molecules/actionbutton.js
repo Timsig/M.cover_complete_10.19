@@ -1,7 +1,7 @@
 import React from "react"
 
-const Actionbutton = ({ style, cta, id, action}) => (
-    <button id={id} className={style} type="submit" onClick={action} >
+const Actionbutton = ({ rank, cta, id, action}) => (
+    <button id={id} className={rank} type="submit" onClick={action} >
       {cta}
     </button>
 )

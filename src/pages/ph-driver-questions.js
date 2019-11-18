@@ -82,13 +82,13 @@ class phDriverQues extends React.Component {
           <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             <Actionbutton
-              style="primary"
+              rank="primary"
               action={this.submitHistory}
               id="phAsDriver"
               cta="Add this driver >"
             />
-            <Navbutton to="/select-drivers" style="secondary" cta="< Back" />
-            <Navbutton style="secondary" cta="Save for later" />
+            <Navbutton to="/select-drivers" rank="secondary" cta="< Back" />
+            <Navbutton rank="secondary" cta="Save for later" />
           </div>
         </Footer>
       </React.Fragment >
