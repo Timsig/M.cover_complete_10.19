@@ -15,16 +15,6 @@ import AdditionalDriverQues from "./pages/additional-driver-questions"
 import AboutYourHome from "./pages/about-your-home"
 import HomeItems from "./pages/home-items"
 import AddItem from "./pages/add-item"
-import QuoteMotorFlob from "./pages/quote-motor-flob"
-import QuoteMotorFlobM from "./pages/quote-motor-flob-monthly"
-import QuoteMotorSlob from "./pages/quote-motor-slob"
-import QuoteMotorSlobM from "./pages/quote-motor-slob-monthly"
-import QuoteHomeFlob from "./pages/quote-home-flob"
-import QuoteHomeFlobA from "./pages/quote-home-flob-annual"
-import QuoteHomeFlobM from "./pages/quote-home-flob-monthly"
-import QuoteHomeSlob from "./pages/quote-home-slob"
-import QuoteHomeSlobA from "./pages/quote-home-slob-annual"
-import QuoteHomeSlobM from "./pages/quote-home-slob-monthly"
 import TheEnd from "./pages/the-end"
 
 
@@ -145,7 +135,6 @@ class Main extends React.Component {
 
   //Add the checked drivers to the car
   driversOnCar(drivers) {
-    console.log("called" + [...drivers])
     //Check if policyholder driving details need to be captured
     if(!drivers.includes(this.state.policyHolder)) {
       return
@@ -252,16 +241,7 @@ class Main extends React.Component {
               render={() => (<AddItem addItem={this.addItem} />
               )}
             />  
-            <Route path="/quote-motor-flob" component={QuoteMotorFlob} />
-            <Route path="/quote-motor-flob-monthly" component={QuoteMotorFlobM} />
-            <Route path="/quote-motor-slob" component={QuoteMotorSlob} />
-            <Route path="/quote-motor-slob-monthly" component={QuoteMotorSlobM} />
-            <Route path="/quote-home-flob" component={QuoteHomeFlob} />
-            <Route path="/quote-home-flob-annual" component={QuoteHomeFlobA} />
-            <Route path="/quote-home-flob-monthly" component={QuoteHomeFlobM} />
-            <Route path="/quote-home-slob" component={QuoteHomeSlob} />
-            <Route path="/quote-home-slob-annual" component={QuoteHomeSlobA} />
-            <Route path="/quote-home-slob-monthly" component={QuoteHomeSlobM} /> 
+             
             <Route path="/the-end" component={TheEnd} />    
           </ScrollToTop>
         </ Router>

@@ -708,13 +708,21 @@ button.btn-x-small {
 
 .add-item {
   position: relative;
+  flex-basis: 47%;
+
+  img {
+    max-width: 100%;
+    margin-bottom: -4px;
+  }
+  
 }
 
 .item-card {
   padding: 8px;
   align-self: stretch;
-  flex-basis: 45%;
-  margin: 0 32px 0 0;
+  flex-basis: 47%;
+  // margin: 0 32px 0 0;
+  margin: 0;
   .item-type {
     font-weight: 700;
     margin-bottom: 8px;

@@ -20,13 +20,15 @@ class coverForCar extends React.Component {
     this.state = {
       mainDriver: mainDriver,
       ncdHolder: ncdHolder,
-      redirect: false
+      redirect: false,
+      error: false
     } 
   }
 
   setMainDriver(event) {  
       this.setState({
-        mainDriver: event.target.value
+        mainDriver: event.target.value,
+        error: false
       })    
   }
 
@@ -39,6 +41,12 @@ class coverForCar extends React.Component {
   addThisCar() {
     console.log(this.props.car)
     let carToAdd = {...this.props.car}
+    if(!this.state.mainDriver) {
+      this.setState({
+        error: true
+      })
+      return
+    }
     carToAdd.mainDriver = this.state.mainDriver
     carToAdd.ncdHolder =  this.state.ncdHolder
     carToAdd.entered = true
@@ -123,6 +131,7 @@ class coverForCar extends React.Component {
           </div>
         </main>
         <Footer>
+          {this.state.error ? <div className="errorMessage">You need to select a main driver</div> : ""}
           <p>By clicking below, you confirm that the above statements are true.</p>
           <div className="navrow">
             <Actionbutton style="primary" cta="Add this car" action={this.addThisCar} />
