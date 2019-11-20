@@ -41,7 +41,7 @@ class phDriverQues extends React.Component {
     }
     return (
       <React.Fragment>
-        <Headertext headline="Your driving history" />
+        <Headertext headline="Your driving history" subtext="Before we hit the road, we just need a few more details"/>
         <main>
           <div className="questions-wrapper">
             <Qlicence
@@ -59,13 +59,13 @@ class phDriverQues extends React.Component {
               <h3>Please check the following statements</h3>
               <Qprepop
                 id="claimsAccidents"
-                textbefore="Tom"
+                textbefore="Alex"
                 options={["has not", "has"]}
                 textafter="had any claims or accidents in the last five years, including whilst insured with us."
               />
               <Qprepop
                 id="UKres"
-                textbefore="Tom has been a UK resident for"
+                textbefore="Alex has been a UK resident for"
                 options={[
                   "more than 3 years",
                   "3 years",

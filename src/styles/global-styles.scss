@@ -135,6 +135,16 @@ h4 {
   font-weight: 700;
 }
 
+.intro {
+  font-family: $livvic;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 28px;
+  color: $accessible-green;
+  margin-top: 16px;
+}
+
+
 /******* Form field molecules general rules *********/
 
 input,
@@ -204,11 +214,13 @@ label {
 
 .page-head-wrap {
   padding: 20px 0 20px 0;
+
+  h1, p {
+  margin: 0 16px 0 16px;
+  }
+
 }
 
-.page-head-wrap h1 {
-  margin: 0 16px 0 16px;
-}
 
 .fake-btn-block {
   text-align: center;
