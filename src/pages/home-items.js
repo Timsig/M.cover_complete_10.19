@@ -23,7 +23,7 @@ class homeItems extends React.Component {
   homeComplete() {
     this.props.lineComplete("homeComplete")
     this.props.lineComplete("motorComplete")
-    let nextDest = this.props.firstLOB === "home" ? "/quote-home-flob" : "/quote-home-slob"
+    window.open('https://sjjj3r.axshare.com/home_slob.html', '_blank')
     this.setState({
       nextDest: "/the-end",
       redirect: true

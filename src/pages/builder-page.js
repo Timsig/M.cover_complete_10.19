@@ -52,7 +52,7 @@ class builder extends React.Component {
     }
     this.props.lineComplete("motorComplete")
     let nextDest = this.props.firstLOB === "motor" ? "/quote-motor-flob" : "/quote-motor-slob"
-    window.location.assign('https://sjjj3r.axshare.com/car_flob_-_with_br_table.html')
+    window.open('https://sjjj3r.axshare.com/car_flob.html','_blank')
     this.setState({
       nextDest: "/quote",
       redirect: true
